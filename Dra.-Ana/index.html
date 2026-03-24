@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Ana Carvalho — Psicóloga Infantil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --sage: #8FA898;
+    --sage-light: #C8D8C8;
+    --sage-pale: #EAF0EA;
+    --blush: #E8D5C8;
+    --blush-light: #F5EDE6;
+    --cream: #FAF7F2;
+    --warm-white: #FDFCFA;
+    --text-dark: #2C2C28;
+    --text-mid: #5C5C56;
+    --text-soft: #8C8C84;
+    --clay: #C4907A;
+    --clay-light: #D4A891;
+    --border: rgba(143, 168, 152, 0.25);
+    --shadow: 0 2px 24px rgba(44, 44, 40, 0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(253, 252, 250, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--text-dark);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--sage); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--sage); }
+
+  .nav-cta {
+    background: var(--sage) !important;
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 100px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--text-dark) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-dark);
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 5%;
+    padding-top: 80px;
+    gap: 4rem;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 55%;
+    height: 120%;
+    background: var(--sage-pale);
+    border-radius: 0 0 0 60% / 0 0 0 40%;
+    z-index: 0;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    max-width: 540px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    max-width: 440px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--text-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1px solid rgba(44,44,40,0.2);
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+  }
+
+  .hero-image {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-portrait {
+    width: 420px;
+    height: 520px;
+    background: var(--blush);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-portrait-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
+  .portrait-silhouette {
+    width: 240px;
+    height: 340px;
+    background: linear-gradient(180deg, #D4A891 0%, #C4907A 100%);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+  }
+
+  .portrait-head {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: #D4A891;
+    border-radius: 50%;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    min-width: 160px;
+  }
+
+  .hero-badge-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--sage);
+    line-height: 1;
+  }
+
+  .hero-badge-label {
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    margin-top: 0.25rem;
+  }
+
+  .hero-badge2 {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--sage);
+    color: white;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 140px;
+    text-align: center;
+  }
+
+  /* SOBRE */
+  .about {
+    padding: 7rem 5%;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .about-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+  }
+
+  .credential-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .credential-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .credential-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .credential-text {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  .credential-text strong {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+
+  .about-deco {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    z-index: -1;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--clay);
+  }
+
+  .section-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+  }
+
+  .section-h2 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  /* SERVIÇOS */
+  .services {
+    padding: 7rem 5%;
+    background: var(--warm-white);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .service-card:hover {
+    border-color: var(--sage-light);
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 400;
+  }
+
+  /* ABORDAGEM */
+  .approach {
+    padding: 7rem 5%;
+    background: var(--sage-pale);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .approach-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .approach-header {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 5rem;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: var(--sage-light);
+    z-index: 0;
+  }
+
+  .step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .step-num {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: white;
+    border: 1.5px solid var(--sage-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--sage);
+    transition: all 0.3s;
+  }
+
+  .step:hover .step-num {
+    background: var(--sage);
+    color: white;
+    border-color: var(--sage);
+  }
+
+  .step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+  }
+
+  .step p {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+
+  /* DEPOIMENTOS */
+  .testimonials {
+    padding: 7rem 5%;
+    background: var(--warm-white);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 4rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    border-color: var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1.25rem;
+  }
+
+  .star {
+    width: 14px;
+    height: 14px;
+    background: var(--clay-light);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--blush);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--clay);
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+
+  .author-role {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 7rem 5%;
+    background: var(--cream);
+    max-width: 100%;
+  }
+
+  .faq-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    transition: color 0.2s;
+  }
+
+  .faq-question:hover { color: var(--sage); }
+
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .faq-icon svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon {
+    background: var(--sage);
+  }
+
+  .faq-item.open .faq-icon svg {
+    transform: rotate(45deg);
+  }
+
+  .faq-item.open .faq-icon svg path {
+    stroke: white;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    padding: 0;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+    padding-bottom: 1.5rem;
+  }
+
+  /* CONTATO */
+  .contact {
+    padding: 7rem 5%;
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+
+  .contact-info h2 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .contact-info p {
+    color: var(--text-mid);
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    max-width: 400px;
+  }
+
+  .contact-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-detail-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-detail-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-detail-text {
+    padding-top: 0.15rem;
+  }
+
+  .contact-detail-label {
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-detail-value {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 400;
+  }
+
+  .contact-map {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand span { color: var(--sage-light); }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .footer-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--sage-light); }
+
+  .footer-bottom {
+    background: #1e1e1a;
+    padding: 1.25rem 5%;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+
+
+  /* ANIMATIONS */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .hero::before { display: none; }
+
+    .hero-eyebrow { justify-content: center; }
+    .hero-actions { justify-content: center; }
+    .hero-image { display: none; }
+
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps::before { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; }
+    footer { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile menu */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5%;
+    flex-direction: column;
+    gap: 1.25rem;
+    z-index: 99;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  }
+
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--text-dark);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">Dra. Ana <span>Carvalho</span></a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#abordagem">Abordagem</a></li>
+    <li><a href="#contato" class="nav-cta">Agendar Consulta</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileMenu">
+  <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+  <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+  <a href="#abordagem" onclick="toggleMenu()">Abordagem</a>
+  <a href="#contato" onclick="toggleMenu()">Agendar Consulta</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Psicóloga Infantil · CRP 07/00000</div>
+    <h1>Cuidando de<br><em>pequenas mentes,</em><br>grandes futuros</h1>
+    <p class="hero-desc">
+      Atendimento psicológico especializado para crianças e adolescentes,
+      com acolhimento, escuta e abordagem lúdica que transforma o cuidado
+      em descoberta.
+    </p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">Agendar Consulta</a>
+      <a href="#sobre" class="btn-outline">Conhecer mais</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="hero-portrait">
+      <div class="hero-portrait-inner">
+        <div class="portrait-silhouette">
+          <div class="portrait-head"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-number">12+</div>
+      <div class="hero-badge-label">anos de experiência</div>
+    </div>
+    <div class="hero-badge2">
+      Atendimento presencial e online
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about" id="sobre">
+  <div class="about-visual fade-up">
+    <div class="about-deco"></div>
+    <div class="about-card">
+      <div class="about-card-title">Formação &amp; Experiência</div>
+      <ul class="credential-list">
+        <li class="credential-item">
+          <div class="credential-dot"></div>
+          <div class="credential-text">
+            <strong>Graduação em Psicologia</strong>
+            Universidade Federal do RS — 2011
+          </div>
+        </li>
+        <li class="credential-item">
+          <div class="credential-dot"></div>
+          <div class="credential-text">
+            <strong>Especialização em Psicologia Infantil</strong>
+            PUCRS — 2013
+          </div>
+        </li>
+        <li class="credential-item">
+          <div class="credential-dot"></div>
+          <div class="credential-text">
+            <strong>Mestrado em Desenvolvimento Infantil</strong>
+            UFRGS — 2015
+          </div>
+        </li>
+        <li class="credential-item">
+          <div class="credential-dot"></div>
+          <div class="credential-text">
+            <strong>Formação em Terapia Cognitivo-Comportamental</strong>
+            Instituto IBTC — 2017
+          </div>
+        </li>
+        <li class="credential-item">
+          <div class="credential-dot"></div>
+          <div class="credential-text">
+            <strong>Membro do CRP — Conselho Regional de Psicologia</strong>
+            CRP 07/00000
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="about-text fade-up">
+    <div class="section-label">Sobre mim</div>
+    <h2 class="section-h2">Uma psicóloga que<br><em>acredita em cada criança</em></h2>
+    <p>
+      Há mais de 12 anos, dedico minha prática ao cuidado da saúde mental
+      de crianças e adolescentes. Acredito que cada criança traz consigo
+      uma história única, e que o acolhimento respeitoso é o ponto de
+      partida para qualquer processo terapêutico significativo.
+    </p>
+    <p>
+      Trabalho de forma integrativa, combinando recursos lúdicos, narrativos
+      e cognitivo-comportamentais para criar um ambiente seguro e acolhedor
+      onde crianças possam se expressar livremente.
+    </p>
+    <p>
+      Atendo presencialmente em Porto Alegre e também realizo consultas
+      online, garantindo que a distância não seja um obstáculo para o cuidado
+      que sua família merece.
+    </p>
+    <a href="#contato" class="btn-primary" style="margin-top: 1rem;">Falar comigo</a>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services" id="servicos">
+  <div class="services-header fade-up">
+    <div class="section-label">Serviços</div>
+    <h2 class="section-h2">Como posso<br><em>ajudar sua família</em></h2>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C8.5 2 6 5 6 8c0 4 4 7 6 10 2-3 6-6 6-10 0-3-2.5-6-6-6z"/>
+        </svg>
+      </div>
+      <h3>Psicoterapia Infantil</h3>
+      <p>Atendimento individualizado para crianças de 2 a 12 anos, utilizando recursos lúdicos, artísticos e narrativos adaptados à fase de desenvolvimento.</p>
+      <span class="service-tag">2 a 12 anos</span>
+    </div>
+
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+          <line x1="9" y1="9" x2="9.01" y2="9"/>
+          <line x1="15" y1="9" x2="15.01" y2="9"/>
+        </svg>
+      </div>
+      <h3>Psicoterapia para Adolescentes</h3>
+      <p>Espaço seguro e sem julgamentos para adolescentes de 13 a 18 anos trabalharem questões de identidade, relacionamentos e saúde emocional.</p>
+      <span class="service-tag">13 a 18 anos</span>
+    </div>
+
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h3>Orientação a Pais</h3>
+      <p>Sessões dedicadas a pais e cuidadores para desenvolver estratégias parentais positivas, fortalecer vínculos e compreender o desenvolvimento da criança.</p>
+      <span class="service-tag">Para famílias</span>
+    </div>
+
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <h3>Atendimento Online</h3>
+      <p>Sessões por videochamada com a mesma qualidade e ética do atendimento presencial, para famílias em qualquer lugar do Brasil. Realizado conforme as normas do Conselho Federal de Psicologia, garantindo sigilo e privacidade.</p>
+      <span class="service-tag">Todo o Brasil</span>
+    </div>
+
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <h3>Avaliação Psicológica</h3>
+      <p>Processo de avaliação psicológica conduzido com rigor técnico e ético, por meio de entrevistas, observações e instrumentos validados, oferecendo uma compreensão aprofundada do desenvolvimento da criança.</p>
+      <span class="service-tag">Diagnóstico</span>
+    </div>
+
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+      </div>
+      <h3>Consultoria Escolar</h3>
+      <p>Parceria com escolas e educadores para promover ambientes mais saudáveis, inclusivos e emocionalmente seguros para o aprendizado.</p>
+      <span class="service-tag">Escolas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABORDAGEM -->
+<section class="approach" id="abordagem">
+  <div class="approach-inner">
+    <div class="approach-header fade-up">
+      <div class="section-label">Método</div>
+      <h2 class="section-h2">Como funciona<br><em>o processo terapêutico</em></h2>
+      <p style="color: var(--text-mid); font-size: 0.97rem; margin-top: 0.75rem;">
+        Cada atendimento é único, mas seguimos um caminho de cuidado e escuta.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <h4>Primeiro contato</h4>
+        <p>Conversa inicial com os pais para entender a história da criança e definir os objetivos do processo.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <h4>Sessão de acolhimento</h4>
+        <p>Encontro com a criança em ambiente lúdico e seguro, estabelecendo vínculo e confiança.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <h4>Plano terapêutico</h4>
+        <p>Elaboração conjunta de objetivos terapêuticos adaptados ao ritmo e necessidades de cada criança.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">04</div>
+        <h4>Acompanhamento contínuo</h4>
+        <p>Sessões regulares com feedbacks periódicos para a família sobre evolução e próximos passos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header fade-up">
+      <div class="section-label">Dúvidas</div>
+      <h2 class="section-h2">Perguntas<br><em>frequentes</em></h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        A partir de qual idade meu filho pode fazer terapia?
+        <span class="faq-icon">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#8FA898" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Como sei se meu filho precisa de acompanhamento psicológico?
+        <span class="faq-icon">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#8FA898" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Com que frequência são as sessões?
+        <span class="faq-icon">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#8FA898" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Os planos de saúde cobrem o atendimento?
+        <span class="faq-icon">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#8FA898" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        O atendimento online tem a mesma qualidade que o presencial?
+        <span class="faq-icon">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#8FA898" stroke-width="1.5"><path d="M6 1v10M1 6h10"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact" id="contato">
+  <div class="contact-info fade-up">
+    <div class="section-label">Contato</div>
+    <h2><em>Vamos conversar</em><br>sobre sua família?</h2>
+    <p>
+      O primeiro passo pode ser o mais difícil, mas estou aqui para torná-lo
+      mais leve. Entre em contato e agendaremos uma conversa inicial sem compromisso.
+    </p>
+    <ul class="contact-details">
+      <li class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.6 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Telefone / WhatsApp</div>
+          <div class="contact-detail-value">(51) 99999-0000</div>
+        </div>
+      </li>
+      <li class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">E-mail</div>
+          <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c7f7372687d68735c786e7d7d7d727d7f7d6e6a7d707473327f7371327e6e">[email&#160;protected]</a></div>
+        </div>
+      </li>
+      <li class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Endereço</div>
+          <div class="contact-detail-value">Rua Padre Chagas, 185 — sala 302<br>Moinhos de Vento, Porto Alegre/RS</div>
+        </div>
+      </li>
+      <li class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8FA898" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Horários</div>
+          <div class="contact-detail-value">Segunda a Sexta, das 8h às 19h</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="contact-map fade-up">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;margin-bottom:1.25rem;color:var(--text-dark);">Como nos encontrar</h3>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.6!2d-51.197!3d-30.028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979e5b5f5c6c7%3A0x1!2sR.+Padre+Chagas%2C+185+-+Moinhos+de+Vento%2C+Porto+Alegre+-+RS!5e0!3m2!1spt-BR!2sbr!4v1"
+        width="100%"
+        height="380"
+        style="border:0;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização do consultório — Rua Padre Chagas, 185, Moinhos de Vento, Porto Alegre/RS">
+      </iframe>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-soft);margin-top:0.75rem;text-align:center;">
+      Rua Padre Chagas, 185 — sala 302 · Moinhos de Vento · Porto Alegre/RS
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">Dra. Ana <span>Carvalho</span></div>
+    <p class="footer-tagline">Psicóloga especializada em saúde mental infantil e adolescente. CRP 07/00000.</p>
+  </div>
+  <div>
+    <div class="footer-title">Navegação</div>
+    <ul class="footer-links">
+      <li><a href="#sobre">Sobre mim</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#abordagem">Abordagem</a></li>
+      <li><a href="#contato">Agendar consulta</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-title">Contato</div>
+    <ul class="footer-links">
+      <li><a href="#">(51) 99999-0000</a></li>
+      <li><a href="#"><span class="__cf_email__" data-cfemail="0764686973667368476375666666696664667571666b6f682964686a296575">[email&#160;protected]</span></a></li>
+      <li><a href="#">Moinhos de Vento, Porto Alegre</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 2025 Dra. Ana Carvalho — Psicóloga Infantil. Todos os direitos reservados.
+</div>
+
+
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.padding = window.scrollY > 40 ? '0.9rem 5%' : '1.25rem 5%';
+  });
+</script>
+</body>
+</html>
