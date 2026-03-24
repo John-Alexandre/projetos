@@ -155,12 +155,12 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-img" data-animate="fade-right">
-    <div class="about-img-inner">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="80" fill="#1a8c6e"/>
-        <path d="M100 40C75 40 50 62 50 87c0 22 14 32 22 43 4 6 7 13 8 20l1 6h38l1-6c1-7 4-14 8-20 8-11 22-21 22-43 0-25-25-47-50-47zm0 18c7 0 12 5 12 12s-5 12-12 12-12-5-12-12 5-12 12-12z" fill="white" opacity="0.9"/>
-      </svg>
-    </div>
+    <img
+      src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
+      alt="Interior moderno da Clínica DentaCare com equipamentos de última geração"
+      class="about-photo"
+      loading="lazy"
+    />
     <div class="team-badges">
       <div class="team-badge">👨‍⚕️ 6 Especialistas</div>
       <div class="team-badge">🏆 ISO Certificada</div>
@@ -213,57 +213,110 @@
 
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
-  <div class="section-header">
-    <div class="section-label light">Depoimentos</div>
-    <h2>O que dizem<br>nossos pacientes</h2>
-    <p class="lead light">Mais de 8.000 pacientes satisfeitos que confiam no nosso cuidado.</p>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card" data-animate="fade-up" data-delay="0">
-      <div class="testi-rating">★★★★★</div>
-      <p class="testi-text">"Fiz meu clareamento e o resultado foi incrível. A equipe toda é super atenciosa, fui super bem acolhida. Recomendo demais!"</p>
-      <div class="testi-author">
-        <div class="testi-ava">AM</div>
-        <div>
-          <div class="testi-name">Ana Maria S.</div>
-          <div class="testi-desc">Clareamento Dental</div>
-        </div>
-      </div>
+  <div class="testi-header">
+    <div>
+      <div class="section-label light">Depoimentos</div>
+      <h2>O que dizem<br>nossos pacientes</h2>
+      <p class="lead light">Mais de 8.000 pacientes satisfeitos que confiam no nosso cuidado.</p>
     </div>
-    <div class="testi-card" data-animate="fade-up" data-delay="100">
-      <div class="testi-rating">★★★★★</div>
-      <p class="testi-text">"Coloquei implante aqui e a experiência foi muito tranquila. Nunca senti dor, a doutora explicou tudo detalhadamente. Ficou perfeito!"</p>
-      <div class="testi-author">
-        <div class="testi-ava">RP</div>
-        <div>
-          <div class="testi-name">Roberto P.</div>
-          <div class="testi-desc">Implante Dental</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card" data-animate="fade-up" data-delay="200">
-      <div class="testi-rating">★★★★★</div>
-      <p class="testi-text">"Levo meu filho desde os 4 anos aqui. Ele ama vir ao dentista! A dra. Fernanda tem um jeito especial com crianças. Ambiente lindo também."</p>
-      <div class="testi-author">
-        <div class="testi-ava">JC</div>
-        <div>
-          <div class="testi-name">Juliana C.</div>
-          <div class="testi-desc">Odontopediatria</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card" data-animate="fade-up" data-delay="300">
-      <div class="testi-rating">★★★★★</div>
-      <p class="testi-text">"As facetas transformaram meu sorriso completamente. Vale cada centavo. Fico envergonhada de pensar que demorei tanto para fazer."</p>
-      <div class="testi-author">
-        <div class="testi-ava">MF</div>
-        <div>
-          <div class="testi-name">Mariana F.</div>
-          <div class="testi-desc">Facetas de Porcelana</div>
-        </div>
-      </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Próximo">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Fiz meu clareamento e o resultado foi incrível. A equipe toda é super atenciosa, fui super bem acolhida. Recomendo demais para todo mundo!"</p>
+        <div class="testi-author">
+          <div class="testi-ava">AM</div>
+          <div><div class="testi-name">Ana Maria S.</div><div class="testi-desc">Clareamento Dental</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Coloquei implante aqui e a experiência foi muito tranquila. Nunca senti dor, a doutora explicou tudo detalhadamente. Ficou perfeito!"</p>
+        <div class="testi-author">
+          <div class="testi-ava">RP</div>
+          <div><div class="testi-name">Roberto P.</div><div class="testi-desc">Implante Dental</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Levo meu filho desde os 4 anos aqui. Ele ama vir ao dentista! A dra. Fernanda tem um jeito especial com crianças. Ambiente lindo também."</p>
+        <div class="testi-author">
+          <div class="testi-ava">JC</div>
+          <div><div class="testi-name">Juliana C.</div><div class="testi-desc">Odontopediatria</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"As facetas transformaram meu sorriso completamente. Vale cada centavo. Fico envergonhada de pensar que demorei tanto para fazer isso."</p>
+        <div class="testi-author">
+          <div class="testi-ava">MF</div>
+          <div><div class="testi-name">Mariana F.</div><div class="testi-desc">Facetas de Porcelana</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Fiz a ortodontia com alinhadores invisíveis e ficou perfeito. Em menos de 14 meses meu sorriso mudou completamente. Profissionais incríveis!"</p>
+        <div class="testi-author">
+          <div class="testi-ava">LS</div>
+          <div><div class="testi-name">Lucas S.</div><div class="testi-desc">Ortodontia Invisível</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Atendimento nota 10! Cheguei com dor de dente e fui atendida no mesmo dia. Estrutura moderna, equipe acolhedora e resultado excelente."</p>
+        <div class="testi-author">
+          <div class="testi-ava">CP</div>
+          <div><div class="testi-name">Cláudia P.</div><div class="testi-desc">Clínica Geral</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Já indiquei a DentaCare para toda minha família. O Dr. Carlos é extremamente cuidadoso, explica cada etapa do procedimento. Me sinto seguro aqui."</p>
+        <div class="testi-author">
+          <div class="testi-ava">FO</div>
+          <div><div class="testi-name">Fernando O.</div><div class="testi-desc">Implantes Dentais</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Tinha muito medo de dentista, mas a equipe foi tão paciente e gentil que hoje venho sem nenhum receio. O tratamento com anestesia computadorizada não dói nada!"</p>
+        <div class="testi-author">
+          <div class="testi-ava">BN</div>
+          <div><div class="testi-name">Beatriz N.</div><div class="testi-desc">Tratamento de Canal</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-rating">★★★★★</div>
+        <p class="testi-text">"Sou paciente há 8 anos. A clínica cresceu muito, mas o atendimento continua igualmente personalizado. É raro encontrar esse nível de cuidado."</p>
+        <div class="testi-author">
+          <div class="testi-ava">GR</div>
+          <div><div class="testi-name">Gabriela R.</div><div class="testi-desc">Paciente há 8 anos</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
 <!-- APPOINTMENT -->
@@ -284,21 +337,6 @@
           <label for="telefone">Telefone / WhatsApp</label>
           <input type="tel" id="telefone" name="telefone" placeholder="(51) 9 9999-9999" required>
           <span class="form-error" id="telefoneError"></span>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="data">Data preferida</label>
-          <input type="date" id="data" name="data" required>
-          <span class="form-error" id="dataError"></span>
-        </div>
-        <div class="form-group">
-          <label for="horario">Horário preferido</label>
-          <select id="horario" name="horario">
-            <option value="manha">Manhã (8h–12h)</option>
-            <option value="tarde1">Tarde (13h–17h)</option>
-            <option value="tarde2">Tarde (17h–19h)</option>
-          </select>
         </div>
       </div>
       <div class="form-group">

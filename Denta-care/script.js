@@ -164,16 +164,7 @@ const nextTimeEl = document.getElementById('nextTime');
 if (nextTimeEl) nextTimeEl.textContent = getNextSlot();
 
 /* =============================================
-   7. DATE INPUT: set min to today
-   ============================================= */
-const dateInput = document.getElementById('data');
-if (dateInput) {
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.setAttribute('min', today);
-}
-
-/* =============================================
-   8. PHONE MASK
+   7. PHONE MASK
    ============================================= */
 const phoneInput = document.getElementById('telefone');
 if (phoneInput) {
@@ -191,7 +182,7 @@ if (phoneInput) {
 }
 
 /* =============================================
-   9. FORM VALIDATION & SUBMISSION
+   8. FORM VALIDATION & SUBMISSION
    ============================================= */
 const form      = document.getElementById('appointmentForm');
 const submitBtn = document.getElementById('submitBtn');
@@ -201,62 +192,147 @@ function validateField(id, errorId, message, extraCheck) {
   const el    = document.getElementById(id);
   const errEl = document.getElementById(errorId);
   if (!el || !errEl) return true;
-
   const value = el.value.trim();
   let valid   = value.length > 0;
-
   if (valid && extraCheck) valid = extraCheck(value);
-
-  if (!valid) {
-    el.classList.add('error');
-    errEl.textContent = message;
-  } else {
-    el.classList.remove('error');
-    errEl.textContent = '';
-  }
+  if (!valid) { el.classList.add('error'); errEl.textContent = message; }
+  else        { el.classList.remove('error'); errEl.textContent = ''; }
   return valid;
 }
 
-function isValidPhone(val) {
-  return val.replace(/\D/g, '').length >= 10;
-}
+function isValidPhone(val) { return val.replace(/\D/g, '').length >= 10; }
 
 if (form) {
-  // Live validation on blur
   document.getElementById('nome').addEventListener('blur', () => {
     validateField('nome', 'nomeError', 'Por favor, informe seu nome.');
   });
   document.getElementById('telefone').addEventListener('blur', () => {
     validateField('telefone', 'telefoneError', 'Informe um telefone válido.', isValidPhone);
   });
-  document.getElementById('data').addEventListener('blur', () => {
-    validateField('data', 'dataError', 'Selecione uma data para a consulta.');
-  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const v1 = validateField('nome',     'nomeError',     'Por favor, informe seu nome.');
     const v2 = validateField('telefone', 'telefoneError', 'Informe um telefone válido.', isValidPhone);
-    const v3 = validateField('data',     'dataError',     'Selecione uma data para a consulta.');
+    if (!v1 || !v2) return;
 
-    if (!v1 || !v2 || !v3) return;
-
-    // Simulate async submission
     submitBtn.textContent = 'Enviando…';
     submitBtn.disabled    = true;
-
     setTimeout(() => {
       submitBtn.textContent = 'Enviar Solicitação';
       submitBtn.disabled    = false;
       form.reset();
       successEl.classList.add('show');
       scrollToSection('contact');
-
       setTimeout(() => successEl.classList.remove('show'), 6000);
     }, 1400);
   });
 }
+
+/* =============================================
+   9. TESTIMONIALS CAROUSEL
+   ============================================= */
+(function initCarousel() {
+  const track     = document.getElementById('carouselTrack');
+  const prevBtn   = document.getElementById('prevBtn');
+  const nextBtn   = document.getElementById('nextBtn');
+  const dotsEl    = document.getElementById('carouselDots');
+  if (!track) return;
+
+  const cards     = Array.from(track.querySelectorAll('.testi-card'));
+  const total     = cards.length;
+  let current     = 0;
+  let autoTimer   = null;
+
+  // How many cards visible at once based on viewport
+  function visibleCount() {
+    if (window.innerWidth <= 768)  return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function maxIndex() { return total - visibleCount(); }
+
+  // Build dots
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const pages = maxIndex() + 1;
+    for (let i = 0; i < pages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', `Página ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex()));
+    const cardWidth = cards[0].offsetWidth + 20; // gap = 20px
+    track.style.transform = `translateX(-${current * cardWidth}px)`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIndex();
+    updateDots();
+  }
+
+  prevBtn.addEventListener('click', () => { resetAuto(); goTo(current - 1); });
+  nextBtn.addEventListener('click', () => { resetAuto(); goTo(current + 1); });
+
+  // Auto-advance
+  function startAuto() {
+    autoTimer = setInterval(() => {
+      goTo(current >= maxIndex() ? 0 : current + 1);
+    }, 4500);
+  }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  // Drag / swipe
+  let dragStart = 0, isDragging = false;
+
+  track.addEventListener('mousedown',  e => { isDragging = true; dragStart = e.clientX; track.classList.add('dragging'); });
+  track.addEventListener('mousemove',  e => { if (!isDragging) return; e.preventDefault(); });
+  track.addEventListener('mouseup',    e => { if (!isDragging) return; isDragging = false; track.classList.remove('dragging'); handleDrag(e.clientX - dragStart); });
+  track.addEventListener('mouseleave', e => { if (!isDragging) return; isDragging = false; track.classList.remove('dragging'); handleDrag(e.clientX - dragStart); });
+
+  track.addEventListener('touchstart', e => { dragStart = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => { handleDrag(e.changedTouches[0].clientX - dragStart); });
+
+  function handleDrag(delta) {
+    resetAuto();
+    if (delta < -40)      goTo(current + 1);
+    else if (delta > 40)  goTo(current - 1);
+  }
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    const section = document.getElementById('testimonials');
+    if (!section) return;
+    const r = section.getBoundingClientRect();
+    if (r.top > window.innerHeight || r.bottom < 0) return;
+    if (e.key === 'ArrowLeft')  { resetAuto(); goTo(current - 1); }
+    if (e.key === 'ArrowRight') { resetAuto(); goTo(current + 1); }
+  });
+
+  // Recalc on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      buildDots();
+      goTo(Math.min(current, maxIndex()));
+    }, 100);
+  });
+
+  buildDots();
+  goTo(0);
+  startAuto();
+})();
 
 /* =============================================
    10. SERVICE CARDS: ripple click effect
