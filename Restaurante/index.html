@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saveur | Restaurante Fine Dining em São Paulo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── MOBILE NAV OVERLAY ── -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-menu" onclick="closeMobileNav()">✕</button>
+  <a href="#inicio" onclick="closeMobileNav()">Início</a>
+  <a href="#menu" onclick="closeMobileNav()">Menu</a>
+  <a href="#sobre" onclick="closeMobileNav()">Sobre</a>
+  <a href="#experiencias" onclick="closeMobileNav()">Experiências</a>
+  <a href="#galeria" onclick="closeMobileNav()">Galeria</a>
+  <a href="#chef" onclick="closeMobileNav()">Chef</a>
+  <a href="#reservas" onclick="closeMobileNav()">Reservas</a>
+  <a href="#depoimentos" onclick="closeMobileNav()">Avaliações</a>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#inicio" class="logo">SAVEUR</a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#chef">Chef</a></li>
+    <li><a href="#reservas">Reservas</a></li>
+    <li><a href="#depoimentos">Avaliações</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content fade-in">
+    <span class="hero-tag">Gastronomia de Excelência</span>
+    <h1 class="hero-title">Uma Experiência<br><em>Inesquecível</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Sabores refinados, ingredientes selecionados e uma atmosfera que encanta todos os sentidos.</p>
+    <a href="#reservas" class="btn-primary">Reservar Mesa</a>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <span class="section-tag">Nossas Especialidades</span>
+  <h2 class="section-title">O Menu</h2>
+  <div class="section-divider"></div>
+
+  <div class="menu-grid">
+
+    <!-- ENTRADAS -->
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Foie Gras Flambado">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Foie Gras Flambado</span>
+          <span class="card-price">R$ 134</span>
+        </div>
+        <p class="card-desc">Foie gras selado na frigideira de ferro, geleia de damasco, brioche torrado e redução de Sauternes.</p>
+        <span class="card-tag">Entrada Premium</span>
+      </div>
+    </article>
+
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600&q=80" alt="Ravióli de Lagosta">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Ravióli de Lagosta</span>
+          <span class="card-price">R$ 98</span>
+        </div>
+        <p class="card-desc">Massa artesanal recheada com lagosta fresca, ao molho bisque com toque de conhaque.</p>
+        <span class="card-tag">Entrada · Massa</span>
+      </div>
+    </article>
+
+    <!-- PRATOS PRINCIPAIS -->
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Wagyu A5 ao Carvão">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Wagyu A5 ao Carvão</span>
+          <span class="card-price">R$ 220</span>
+        </div>
+        <p class="card-desc">Corte nobre de boi Wagyu japonês, selado em brasa de lenha de cerejeira com purê de trufa negra.</p>
+        <span class="card-tag">Prato Principal</span>
+      </div>
+    </article>
+
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Robalo Grelhado">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Robalo Grelhado</span>
+          <span class="card-price">R$ 112</span>
+        </div>
+        <p class="card-desc">Filé de robalo com crosta de ervas finas, acompanhado de legumes da estação.</p>
+        <span class="card-tag">Prato Principal</span>
+      </div>
+    </article>
+
+    <!-- SOBREMESAS -->
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Esfera de Chocolate">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Esfera de Chocolate</span>
+          <span class="card-price">R$ 68</span>
+        </div>
+        <p class="card-desc">Chocolate belga 70% com folha de ouro, coração de frutas vermelhas e sorvete de baunilha.</p>
+        <span class="card-tag">Sobremesa</span>
+      </div>
+    </article>
+
+    <article class="menu-card fade-in">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Tarte Tatin de Pera">
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-name">Tarte Tatin de Pera</span>
+          <span class="card-price">R$ 72</span>
+        </div>
+        <p class="card-desc">Peras caramelizadas em manteiga noisette, massa folhada artesanal, creme fraîche e mel de trevo.</p>
+        <span class="card-tag">Sobremesa</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ── SOBRE ── -->
+<section id="sobre">
+  <div class="sobre-inner">
+  <div class="sobre-img fade-in">
+    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80" alt="Interior do Saveur">
+    <div class="sobre-frame"></div>
+  </div>
+  <div class="sobre-text fade-in">
+    <span class="section-tag">Nossa História</span>
+    <h2 class="section-title">Sobre o Saveur</h2>
+    <div class="section-divider"></div>
+    <p>Fundado em 2018, o Saveur nasceu da paixão por transformar ingredientes excepcionais em experiências memoráveis. Nosso chef executivo, com mais de 20 anos de experiência em cozinhas premiadas da Europa, traz uma abordagem que une tradição e inovação.</p>
+    <p>Cada prato é uma obra de arte, cada refeição uma celebração. Trabalhamos com produtores locais e ingredientes sazonais para garantir frescor e sustentabilidade em tudo que servimos.</p>
+    <div class="stats">
+      <div>
+        <span class="stat-num">2018</span>
+        <span class="stat-label">Fundação</span>
+      </div>
+      <div>
+        <span class="stat-num">15k+</span>
+        <span class="stat-label">Clientes por Ano</span>
+      </div>
+      <div>
+        <span class="stat-num">⭐ 4.9</span>
+        <span class="stat-label">Avaliação Média</span>
+      </div>
+      <div>
+        <span class="stat-num">3</span>
+        <span class="stat-label">Prêmios Nacionais</span>
+      </div>
+    </div>
+  </div><!-- /.sobre-inner -->
+</section>
+
+<!-- ── EXPERIÊNCIAS ── -->
+<section id="experiencias">
+  <span class="section-tag">Viva o Melhor</span>
+  <h2 class="section-title">Nossas Experiências</h2>
+  <div class="section-divider"></div>
+  <div class="exp-grid fade-in">
+    <div class="exp-item">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.686 2 6 4.686 6 8c0 5 6 13 6 13s6-8 6-13c0-3.314-2.686-6-6-6z"/><circle cx="12" cy="8" r="2"/></svg>
+      </div>
+      <h3 class="exp-title">Menu Degustação</h3>
+      <p class="exp-desc">7 tempos cuidadosamente elaborados com harmonização de vinhos europeus selecionados pelo nosso sommelier.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3 class="exp-title">Jantar Privativo</h3>
+      <p class="exp-desc">Salão exclusivo para grupos de até 12 pessoas. Cardápio personalizado com o chef para celebrações especiais.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3 class="exp-title">Chef's Table</h3>
+      <p class="exp-desc">Experiência imersiva na cozinha. Assista ao preparo dos pratos e interaja diretamente com nossa equipe culinária.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3 class="exp-title">Harmonização de Vinhos</h3>
+      <p class="exp-desc">Sessões mensais guiadas pelo nosso sommelier com rótulos exclusivos de vinícolas selecionadas da Europa e América do Sul.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERIA ── -->
+<section id="galeria">
+  <span class="section-tag">Nossa Essência Visual</span>
+  <h2 class="section-title">Galeria</h2>
+  <div class="section-divider"></div>
+  <div class="gallery-grid fade-in">
+    <div class="gallery-item g1">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Ambiente do restaurante">
+    </div>
+    <div class="gallery-item g2">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&q=80" alt="Prato refinado">
+    </div>
+    <div class="gallery-item g3">
+      <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=500&q=80" alt="Adega de vinhos">
+    </div>
+    <div class="gallery-item g4">
+      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=500&q=80" alt="Cozinha do chef">
+    </div>
+    <div class="gallery-item g5">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Detalhe de prato">
+    </div>
+  </div>
+</section>
+
+<!-- ── CHEF ── -->
+<section id="chef">
+  <div class="chef-wrap">
+    <div class="chef-img fade-in">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=700&q=80" alt="Chef Executivo">
+    </div>
+    <div class="chef-text fade-in">
+      <span class="section-tag">O Maestro da Cozinha</span>
+      <h2 class="section-title">Chef Philippe Moreau</h2>
+      <div class="section-divider"></div>
+      <p>Nascido em Lyon, França, Philippe Moreau iniciou sua jornada gastronômica aos 14 anos nas cozinhas do restaurante familiar. Formado pelo Institut Paul Bocuse e com passagens pelo elBulli e Noma, traz à mesa uma visão única que mistura técnicas europeias com ingredientes brasileiros.</p>
+      <p>Após 8 anos à frente de restaurantes com reconhecimento internacional em Paris e Copenhague, Philippe escolheu São Paulo como seu lar criativo, apaixonado pela riqueza dos ingredientes tropicais brasileiros.</p>
+      <div class="chef-awards">
+        <div class="award">
+          <div class="award-dot"></div>
+          <span class="award-text">Melhor Restaurante Fine Dining — Guia Michelin Brasil 2023</span>
+        </div>
+        <div class="award">
+          <div class="award-dot"></div>
+          <span class="award-text">Chef do Ano — Prêmio Paladar 2022 & 2023</span>
+        </div>
+        <div class="award">
+          <div class="award-dot"></div>
+          <span class="award-text">Top 50 Restaurantes da América Latina — Latin America's 50 Best 2024</span>
+        </div>
+        <div class="award">
+          <div class="award-dot"></div>
+          <span class="award-text">Formado pelo Institut Paul Bocuse, Lyon — França</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESERVAS ── -->
+<section id="reservas">
+  <span class="section-tag">Reserve Sua Mesa</span>
+  <h2 class="section-title">Reservas</h2>
+  <div class="section-divider"></div>
+  <div class="reservas-inner fade-in">
+    <p class="reservas-info">
+      Faça sua reserva diretamente pelo WhatsApp e garanta sua mesa no Saveur.<br>
+      Nossa equipe responde em minutos e confirma todos os detalhes da sua visita com atenção exclusiva.
+    </p>
+    <a
+      href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Saveur."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-whatsapp"
+    >
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Reservar pelo WhatsApp
+    </a>
+    <p class="reservas-note">Terça a Sábado: 18h – 23h &nbsp;·&nbsp; Domingo: 12h – 16h &nbsp;·&nbsp; Segunda: Fechado</p>
+  </div>
+</section>
+
+<!-- ── DEPOIMENTOS ── -->
+<section id="depoimentos">
+  <span class="section-tag">O Que Dizem Nossos Convidados</span>
+  <h2 class="section-title">Avaliações</h2>
+  <div class="section-divider"></div>
+  <div class="dep-grid">
+
+    <div class="dep-card fade-in">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"Uma experiência que supera qualquer expectativa. O Ravioli de Lagosta é poesia pura em forma de prato. Voltarei sempre que puder."</p>
+      <div class="dep-author">
+        <div class="dep-avatar"><img src="https://i.pravatar.cc/88?img=47" alt="Ana Carolina"></div>
+        <div>
+          <span class="dep-name">Ana Carolina Ferreira</span>
+          <span class="dep-role">Gastrônoma · São Paulo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card fade-in">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"Fizemos o jantar de aniversário de casamento no salão privativo. Foi simplesmente mágico. O Chef Philippe veio pessoalmente à nossa mesa — que elegância!"</p>
+      <div class="dep-author">
+        <div class="dep-avatar"><img src="https://i.pravatar.cc/88?img=12" alt="Roberto Alves"></div>
+        <div>
+          <span class="dep-name">Roberto & Luciana Alves</span>
+          <span class="dep-role">Clientes Fidelizados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card fade-in">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"O Chef's Table foi a melhor experiência gastronômica da minha vida. Ver a cozinha de perto e entender cada escolha do chef é algo que não tem preço."</p>
+      <div class="dep-author">
+        <div class="dep-avatar"><img src="https://i.pravatar.cc/88?img=35" alt="Mariana Costa"></div>
+        <div>
+          <span class="dep-name">Mariana Costa</span>
+          <span class="dep-role">Chef Amadora · Belo Horizonte</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card fade-in">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">"O Wagyu A5 simplesmente derrete na boca. Nunca imaginei que um restaurante no Brasil pudesse atingir esse nível. O serviço é discreto, atencioso e impecável do início ao fim."</p>
+      <div class="dep-author">
+        <div class="dep-avatar"><img src="https://i.pravatar.cc/88?img=68" alt="Felipe Drummond"></div>
+        <div>
+          <span class="dep-name">Felipe Drummond</span>
+          <span class="dep-role">Empresário · Rio de Janeiro</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── GOOGLE MAPS ── -->
+<section id="mapa">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.086!2d-46.6542!3d-23.5615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Localização do Saveur — Rua da Gastronomia, 250, São Paulo">
+  </iframe>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#inicio" class="logo">SAVEUR</a>
+      <p>Uma experiência gastronômica única, onde cada detalhe é pensado para surpreender.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Horário</h4>
+      <ul>
+        <li>Terça a Sábado: 18h – 23h</li>
+        <li>Domingo: 12h – 16h</li>
+        <li>Segunda: Fechado</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>Rua da Gastronomia, 250<br>São Paulo, SP · 01310-100<br><br>(11) 3456-7890<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e1c0b1d0b1c180f1d2e1d0f180b1b1c400d0103400c1c">[email&#160;protected]</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Menu Rápido</h4>
+      <ul>
+        <li><a href="#menu">O Menu</a></li>
+        <li><a href="#experiencias">Experiências</a></li>
+        <li><a href="#chef">Sobre o Chef</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#depoimentos">Avaliações</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Saveur. Todos os direitos reservados.</p>
+    <p style="color: var(--text-dim); font-size: 0.72rem;">Feito com paixão · São Paulo, Brasil</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
