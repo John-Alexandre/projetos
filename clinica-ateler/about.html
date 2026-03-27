@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós | The Clinical Atelier - Dr. Alexandre Rossi - Dentista Premium São Paulo</title>
+  <meta name="description" content="Conheça o Dr. Alexandre Rossi, fundador do The Clinical Atelier. Mestre pela Harvard Medical School. 20+ anos em odontologia estética de elite em São Paulo.">
+  <meta name="keywords" content="Dr. Alexandre Rossi, dentista São Paulo, Harvard Medical School, odontologia premium, scanner intraoral 5D, reabilitação oral">
+  <meta name="author" content="The Clinical Atelier">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.theclinicalatelier.com.br/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sobre Nós | The Clinical Atelier">
+  <meta property="og:description" content="Dr. Alexandre Rossi - 20+ anos de excelência em odontologia estética.">
+  <meta property="og:image" content="https://www.theclinicalatelier.com.br/images/og-about.jpg">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          "primary": "#0A192F", "secondary": "#CBA72F", "tertiary": "#735c00",
+          "surface": "#F8F9FA", "on-surface": "#191c1d", "on-surface-variant": "#44474d",
+          "primary-container": "#0d1c32", "tertiary-container": "#cba72f",
+          "outline-variant": "#c5c6cd", "surface-container-low": "#f3f4f5",
+          "surface-container-lowest": "#ffffff", "surface-container-highest": "#e1e3e4",
+          "on-primary-container": "#76849f", "secondary-container": "#fed65b",
+          "on-secondary-container": "#745c00",
+        },
+        fontFamily: { "headline": ["Noto Serif","serif"], "body": ["Manrope","sans-serif"] },
+        boxShadow: { 'prestige': '0 20px 50px -12px rgba(10,25,47,0.15)', 'ambient': '0 20px 50px -10px rgba(115,92,0,0.15)' }
+      }}
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .icon-filled { font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    .nav-link { position: relative; }
+    .nav-link::after { content:''; position:absolute; width:0; height:1px; bottom:-2px; left:0; background:#CBA72F; transition:width 0.3s; }
+    .nav-link:hover::after, .nav-link:focus-visible::after { width:100%; }
+    .skip-link { position:absolute; top:-100%; left:50%; transform:translateX(-50%); background:#0A192F; color:#fff; padding:0.75rem 1.5rem; border-radius:0 0 0.5rem 0.5rem; z-index:9999; font-size:0.875rem; font-weight:600; transition:top 0.3s; }
+    .skip-link:focus { top:0; outline:3px solid #CBA72F; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(20px); z-index:49; padding:6rem 2rem; flex-direction:column; align-items:center; justify-content:center; gap:2rem; }
+    .mobile-menu.open { display:flex; }
+    :focus-visible { outline:3px solid #CBA72F; outline-offset:2px; }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased overflow-x-hidden">
+  <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
+
+  <!-- NAV -->
+  <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md shadow-sm flex justify-between items-center px-6 md:px-8 py-4" role="banner">
+    <a href="index.html" class="text-xl font-headline italic text-primary-container" aria-label="Página Inicial">The Clinical Atelier</a>
+    <nav class="hidden md:flex gap-8 items-center" aria-label="Navegação principal">
+      <a class="nav-link font-body uppercase tracking-wider text-xs text-primary-container/80 hover:text-secondary transition-colors" href="index.html">Home</a>
+      <a class="nav-link font-body uppercase tracking-wider text-xs text-secondary border-b-2 border-secondary pb-1" href="about.html" aria-current="page">About</a>
+      <a class="nav-link font-body uppercase tracking-wider text-xs text-primary-container/80 hover:text-secondary transition-colors" href="services.html">Services</a>
+      <a class="nav-link font-body uppercase tracking-wider text-xs text-primary-container/80 hover:text-secondary transition-colors" href="gallery.html">Results</a>
+    </nav>
+    <a href="https://wa.me/5511999999999" class="hidden sm:inline-block bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 active:scale-95 transition-transform" target="_blank" rel="noopener noreferrer">Agendar Consulta</a>
+    <button class="md:hidden flex flex-col gap-[5px] p-2" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span class="block w-6 h-[2px] bg-primary rounded" id="bar1"></span>
+      <span class="block w-6 h-[2px] bg-primary rounded" id="bar2"></span>
+      <span class="block w-6 h-[2px] bg-primary rounded" id="bar3"></span>
+    </button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a class="font-headline text-2xl text-primary" href="index.html">Home</a>
+    <a class="font-headline text-2xl text-primary" href="about.html">About</a>
+    <a class="font-headline text-2xl text-primary" href="services.html">Services</a>
+    <a class="font-headline text-2xl text-primary" href="gallery.html">Results</a>
+    <a href="https://wa.me/5511999999999" class="mt-4 bg-secondary text-primary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs" target="_blank" rel="noopener noreferrer">Agendar</a>
+  </div>
+
+  <main id="main-content" class="pt-16 md:pt-24">
+
+    <!-- Hero: Dr. Alexandre Rossi -->
+    <section class="relative min-h-[60vh] md:min-h-[819px] flex items-center px-6 md:px-20 overflow-hidden" aria-labelledby="about-hero-title">
+      <div class="absolute top-0 right-0 w-full md:w-1/2 h-full z-0">
+        <img alt="Dr. Alexandre Rossi, fundador e diretor clínico do The Clinical Atelier" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCip6at2T8xu8FumWlam4uXrmfPQRqjYdiIUA510TKdVoXaJTvzinT1RppezcDICm77qTHqImL8I12m9JB5m6wLtO-7rhpQWX2In2LoTEhxnca30jsdB-el4eDed7XC-nEj7tCNTAotOOanw-syjWj_ltBeiLv77Jp_7Sj9dXxtp7yWiUawlNXHcD-y9RF6f6JBwuriHPe5_Au5ub0MHnnhKtx77r1Ck7Aa1TxRsHmOdYOS4DSYT3xYPlGrF2WbCb_9xxfWVbE1FQ" loading="eager" width="800" height="1000">
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent" aria-hidden="true"></div>
+      </div>
+      <div class="relative z-10 max-w-2xl">
+        <span class="font-body uppercase tracking-[0.3em] text-xs text-secondary font-bold mb-4 block">Fundador &amp; Diretor Clínico</span>
+        <h1 id="about-hero-title" class="font-headline text-4xl sm:text-5xl md:text-7xl font-semibold text-primary-container leading-tight mb-6 md:mb-8">Dr. Alexandre Rossi</h1>
+        <p class="font-body text-base md:text-lg font-light text-on-surface-variant leading-relaxed mb-8 md:mb-10 border-l-2 border-secondary pl-4 md:pl-6">
+          Mestre em Reabilitação Oral com especialização na Harvard Medical School. Uma trajetória dedicada à fusão entre o rigor científico e a estética artesanal.
+        </p>
+        <div class="flex gap-4">
+          <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-sm flex-1">
+            <span class="block text-xl md:text-2xl font-bold text-secondary mb-1">20+</span>
+            <span class="font-body uppercase text-[9px] md:text-[10px] tracking-widest text-on-surface-variant">Anos de Experiência</span>
+          </div>
+          <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-sm flex-1">
+            <span class="block text-xl md:text-2xl font-bold text-secondary mb-1">12k</span>
+            <span class="font-body uppercase text-[9px] md:text-[10px] tracking-widest text-on-surface-variant">Sorrisos Criados</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formação: Bento Grid -->
+    <section class="py-16 md:py-24 px-6 md:px-20 bg-surface-container-low" aria-labelledby="history-title">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 max-w-7xl mx-auto">
+        <article class="md:col-span-8 bg-primary-container p-8 md:p-12 rounded-xl flex flex-col justify-end text-surface">
+          <span class="font-body uppercase tracking-[0.2em] text-[10px] text-tertiary-container mb-3 md:mb-4">A Jornada</span>
+          <h2 id="history-title" class="font-headline text-2xl md:text-3xl font-light mb-4 md:mb-6">Da Academia Internacional ao Coração da Odontologia Moderna</h2>
+          <p class="font-body font-light text-surface/80 leading-relaxed max-w-xl text-sm md:text-base">
+            Após anos de pesquisa em centros de excelência na Europa e Estados Unidos, o Dr. Alexandre Rossi visualizou um espaço onde a tecnologia de ponta não sacrificasse o toque humano. O Clinical Atelier nasceu para ser o santuário da precisão.
+          </p>
+        </article>
+        <article class="md:col-span-4 bg-surface-container-lowest p-8 md:p-10 rounded-xl flex flex-col items-center justify-center text-center border border-outline-variant/10">
+          <span class="material-symbols-outlined icon-filled text-secondary text-4xl md:text-5xl mb-3 md:mb-4" aria-hidden="true">workspace_premium</span>
+          <h3 class="font-headline text-lg md:text-xl font-bold mb-2">Harvard Medical</h3>
+          <p class="text-sm text-on-surface-variant">Specialization in Advanced Esthetics &amp; Oral Surgery</p>
+        </article>
+        <div class="md:col-span-4 h-48 md:h-64 overflow-hidden rounded-xl">
+          <img alt="Equipamentos de pesquisa científica e microscópio no laboratório do Clinical Atelier" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEje_dEBtCHwunWz31k5e6TzBD32zzdkodFbMm47iunncxHJlX1OW5lQvNUs1VKZWq6rAuIGzLNhbKushfxKTSSbBq8bg8AsvRTofVNsdkiHdwjZ-9v66Wg8KLE6fv5qRWvCJpzh8V9VpiIhifds_hw2y91ngID4AkikEVqq8m0PGj6IzTW3rCTedybsISdhFpuTObZLFCnMZ0ss8Q1L0xIxd9sgsYKFGnkQz9NX7yBS_2zcXfE1Xq8P_XfYzCCBf_QGQhfqOsA" loading="lazy" width="600" height="400">
+        </div>
+        <article class="md:col-span-8 bg-surface-container-highest p-8 md:p-12 rounded-xl border border-outline-variant/20">
+          <div class="flex items-start gap-6 md:gap-8">
+            <span class="material-symbols-outlined text-3xl md:text-4xl text-secondary hidden sm:block" aria-hidden="true">history_edu</span>
+            <div>
+              <h3 class="font-headline text-xl md:text-2xl mb-3 md:mb-4">Filosofia de Atendimento 'Artesanal'</h3>
+              <p class="font-body font-light text-on-surface-variant leading-relaxed text-sm md:text-base">
+                Acreditamos que cada face é uma tela única. Nosso processo afasta-se da produção em massa. Cada faceta, cada alinhamento é discutido e esculpido virtualmente antes de se tornar realidade, respeitando a biometria e a personalidade de cada paciente.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- O Atelier Tecnológico -->
+    <section class="py-16 md:py-24 bg-surface relative overflow-hidden" aria-labelledby="tech-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-20 mb-10 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-6">
+        <div class="max-w-xl">
+          <span class="font-body uppercase tracking-[0.2em] text-xs text-secondary font-bold mb-3 md:mb-4 block">Experiência Imersiva</span>
+          <h2 id="tech-title" class="font-headline text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-container">O Atelier Tecnológico</h2>
+        </div>
+        <a href="#" class="group flex items-center gap-3 text-secondary font-bold uppercase text-xs tracking-widest border-b-2 border-secondary/20 pb-2 hover:border-secondary transition-all">
+          Iniciar Tour 3D <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+      <div class="px-6 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
+        <div class="relative group cursor-pointer aspect-video md:aspect-square rounded-xl overflow-hidden shadow-2xl">
+          <img alt="Interior luxuoso da clínica com design minimalista e iluminação ambiente" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ybdTGXhJgPr43nKEAskS1VEzvId2iIt-AJ4_xFdZLxUmXPWEC1WA4968CA9t5yV_2yKciSlmBspba-AqWIRfj1qGngOzISNsGCPNfPzdU3fox5a0qyfC1U6HcY40q_CzctT81q7p7h3WCVG47ORJ3HYauCIK-i1c2-Inq3HyaKSeMApSGcOlbwrR1s-B7B4stkNRNYI-NRVQ1rZuIJmAkdvhH78QeDTs5PdA2lbnybQoTHHM094FTi2hThbuIwpb9EB6kzakbw" loading="lazy" width="600" height="600">
+          <div class="absolute inset-0 bg-primary-container/20 flex items-center justify-center backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-8 md:space-y-12">
+          <article class="flex gap-4 md:gap-6 items-start">
+            <span class="text-3xl md:text-4xl font-headline text-outline-variant" aria-hidden="true">01</span>
+            <div>
+              <h3 class="font-headline text-lg md:text-xl font-bold mb-1 md:mb-2">Scanner Intraoral 5D</h3>
+              <p class="text-on-surface-variant font-light text-sm md:text-base">Eliminamos moldagens desconfortáveis com precisão micrométrica instantânea.</p>
+            </div>
+          </article>
+          <article class="flex gap-4 md:gap-6 items-start">
+            <span class="text-3xl md:text-4xl font-headline text-outline-variant" aria-hidden="true">02</span>
+            <div>
+              <h3 class="font-headline text-lg md:text-xl font-bold mb-1 md:mb-2">Anestesia Digital</h3>
+              <p class="text-on-surface-variant font-light text-sm md:text-base">Conforto absoluto através de controle computadorizado de fluxo de anestésico.</p>
+            </div>
+          </article>
+          <article class="flex gap-4 md:gap-6 items-start">
+            <span class="text-3xl md:text-4xl font-headline text-outline-variant" aria-hidden="true">03</span>
+            <div>
+              <h3 class="font-headline text-lg md:text-xl font-bold mb-1 md:mb-2">Design Lab in-house</h3>
+              <p class="text-on-surface-variant font-light text-sm md:text-base">Seu novo sorriso é projetado e finalizado no mesmo local, garantindo agilidade e fidelidade.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-32 bg-primary-container text-center px-6 md:px-8 relative overflow-hidden" aria-labelledby="about-cta">
+      <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-[-50%] left-[-10%] w-[120%] h-[200%] rotate-12 bg-gradient-to-b from-secondary to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h2 id="about-cta" class="font-headline text-3xl md:text-4xl lg:text-5xl text-surface mb-6 md:mb-8 font-light italic">Pronto para elevar sua autoestima através da odontologia de elite?</h2>
+        <a href="https://wa.me/5511999999999" class="inline-block bg-secondary text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-body font-bold uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-secondary/20 text-xs md:text-sm" target="_blank" rel="noopener noreferrer">
+          Solicitar Consulta Exclusiva
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary-container pt-16 md:pt-20 pb-8 md:pb-10 border-t border-surface/10" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      <div>
+        <p class="text-xl md:text-2xl font-headline text-surface mb-4 md:mb-6">The Clinical Atelier</p>
+        <p class="font-body font-light text-sm text-surface/60 leading-relaxed">Referência em reabilitação estética e saúde oral premium. Unindo arte e ciência para resultados extraordinários.</p>
+      </div>
+      <nav aria-label="Links de exploração">
+        <h3 class="font-headline text-tertiary-container mb-4 md:mb-6 text-base md:text-lg">Explorar</h3>
+        <ul class="space-y-3 md:space-y-4">
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="services.html">Nossos Serviços</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Tecnologias</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="services.html">Tratamentos</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Blog de Saúde</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Links do paciente">
+        <h3 class="font-headline text-tertiary-container mb-4 md:mb-6 text-base md:text-lg">Paciente</h3>
+        <ul class="space-y-3 md:space-y-4">
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Patient Portal</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Dental Ethics</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Privacy Policy</a></li>
+          <li><a class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container transition-all" href="#">Terms of Service</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="font-headline text-tertiary-container mb-4 md:mb-6 text-base md:text-lg">Contato</h3>
+        <address class="not-italic">
+          <p class="font-body font-light text-sm text-surface/60 mb-4">Av. Brigadeiro Faria Lima, 4500<br>Itaim Bibi, São Paulo - SP</p>
+          <div class="flex gap-4">
+            <span class="material-symbols-outlined text-tertiary-container" aria-hidden="true">phone</span>
+            <a href="tel:+5511999990000" class="font-body font-light text-sm text-surface/60 hover:text-tertiary-container">+55 11 99999-0000</a>
+          </div>
+        </address>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 md:px-8 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-surface/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-body font-light text-sm text-surface/60 text-center md:text-left">&copy; 2025 The Clinical Atelier. Elite Dental Craftsmanship.</p>
+      <div class="flex gap-6">
+        <a class="text-surface/60 hover:text-tertiary-container transition-all text-sm" href="#" target="_blank" rel="noopener noreferrer">IG</a>
+        <a class="text-surface/60 hover:text-tertiary-container transition-all text-sm" href="#" target="_blank" rel="noopener noreferrer">FB</a>
+        <a class="text-surface/60 hover:text-tertiary-container transition-all text-sm" href="#" target="_blank" rel="noopener noreferrer">LI</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/5511999999999" class="fixed bottom-8 right-8 z-50 bg-secondary text-primary p-4 rounded-2xl shadow-prestige hover:scale-110 active:scale-95 transition-all" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <span class="material-symbols-outlined icon-filled text-2xl" aria-hidden="true">chat_bubble</span>
+  </a>
+
+  <script>
+    'use strict';
+    (function(){var t=document.getElementById('nav-toggle'),m=document.getElementById('mobile-menu');if(!t||!m)return;function o(){return t.getAttribute('aria-expanded')==='true'}function open(){t.setAttribute('aria-expanded','true');m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('bar1').style.transform='rotate(45deg) translate(5px,5px)';document.getElementById('bar2').style.opacity='0';document.getElementById('bar3').style.transform='rotate(-45deg) translate(5px,-5px)';}function close(){t.setAttribute('aria-expanded','false');m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';document.getElementById('bar1').style.transform='';document.getElementById('bar2').style.opacity='';document.getElementById('bar3').style.transform='';}t.addEventListener('click',function(){o()?close():open()});m.querySelectorAll('a').forEach(function(l){l.addEventListener('click',close)});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&o()){close();t.focus();}});})();
+  </script>
+</body>
+</html>

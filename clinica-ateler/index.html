@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <!-- ═══ META & SEO ═══ -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Clinical Atelier | Clínica Odontológica Premium em São Paulo - Implantes, Lentes de Porcelana</title>
+  <meta name="description" content="Clínica odontológica de alto padrão em São Paulo. Especialistas em implantes 3D, lentes de porcelana, Invisalign e harmonização orofacial. Tecnologia de ponta e atendimento personalizado no Itaim Bibi.">
+  <meta name="keywords" content="clínica odontológica São Paulo, implantes dentários, lentes de porcelana, Invisalign, harmonização orofacial, dentista premium, odontologia estética, reabilitação oral, Itaim Bibi">
+  <meta name="author" content="The Clinical Atelier">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.theclinicalatelier.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.theclinicalatelier.com.br/">
+  <meta property="og:title" content="The Clinical Atelier | Odontologia de Elite em São Paulo">
+  <meta property="og:description" content="Onde a ciência de vanguarda encontra a estética artesanal. Clínica odontológica premium com tecnologia CAD/CAM.">
+  <meta property="og:image" content="https://www.theclinicalatelier.com.br/images/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts (preconnect para performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0A192F",
+            "secondary": "#CBA72F",
+            "tertiary": "#735c00",
+            "surface": "#F8F9FA",
+            "on-surface": "#191C1D",
+            "on-surface-variant": "#44474D",
+            "primary-container": "#0A192F",
+            "secondary-container": "#CBA72F",
+            "on-secondary-container": "#FFFFFF",
+            "outline-variant": "#E1E3E4",
+            "surface-container-low": "#F3F4F5",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-highest": "#E1E3E4"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif", "serif"],
+            "body": ["Manrope", "sans-serif"],
+          },
+          boxShadow: {
+            'prestige': '0 20px 50px -12px rgba(10, 25, 47, 0.15)',
+            'prestige-hover': '0 30px 60px -12px rgba(10, 25, 47, 0.25)',
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .icon-filled { font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+    /* Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+
+    /* Image zoom on hover */
+    .image-zoom-container:hover img { transform: scale(1.05); }
+    .image-zoom-container img { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    /* Nav underline */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; width: 0; height: 1px;
+      bottom: -2px; left: 0; background-color: #CBA72F; transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .nav-link:focus-visible::after { width: 100%; }
+
+    /* Float animation */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+      background: #0A192F; color: #fff; padding: 0.75rem 1.5rem;
+      border-radius: 0 0 0.5rem 0.5rem; z-index: 9999; font-size: 0.875rem;
+      font-weight: 600; transition: top 0.3s;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid #CBA72F; }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
+      z-index: 49; padding: 6rem 2rem; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+
+    /* Focus visible */
+    :focus-visible { outline: 3px solid #CBA72F; outline-offset: 2px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none; opacity: 1; transform: none; }
+      .animate-float { animation: none; }
+      .image-zoom-container img { transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+
+  <!-- Skip Link (Acessibilidade) -->
+  <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HEADER / NAVIGATION
+       ═══════════════════════════════════════════════════════════════ -->
+  <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-primary/5 px-6 md:px-8 py-4 md:py-5 flex justify-between items-center" role="banner">
+    <a href="index.html" class="text-xl font-headline font-semibold italic text-primary tracking-tight" aria-label="The Clinical Atelier - Página Inicial">
+      The Clinical Atelier
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 lg:gap-10" aria-label="Navegação principal">
+      <a class="nav-link font-body uppercase tracking-widest text-[10px] font-bold text-primary" href="#home" aria-current="page">Home</a>
+      <a class="nav-link font-body uppercase tracking-widest text-[10px] font-bold text-primary/60 hover:text-secondary transition-colors" href="about.html">About</a>
+      <a class="nav-link font-body uppercase tracking-widest text-[10px] font-bold text-primary/60 hover:text-secondary transition-colors" href="services.html">Services</a>
+      <a class="nav-link font-body uppercase tracking-widest text-[10px] font-bold text-primary/60 hover:text-secondary transition-colors" href="gallery.html">Results</a>
+      
+    </nav>
+
+    <a href="https://wa.me/5511999999999" class="hidden sm:inline-block bg-primary text-white px-5 md:px-7 py-2.5 rounded-full font-body uppercase tracking-widest text-[10px] font-bold hover:bg-secondary hover:text-primary transition-all duration-500 shadow-lg shadow-primary/10" target="_blank" rel="noopener noreferrer">
+      Agendar Consulta
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="md:hidden flex flex-col gap-[5px] p-2" id="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="block w-6 h-[2px] bg-primary rounded transition-transform origin-center" id="bar1"></span>
+      <span class="block w-6 h-[2px] bg-primary rounded transition-opacity" id="bar2"></span>
+      <span class="block w-6 h-[2px] bg-primary rounded transition-transform origin-center" id="bar3"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu de navegação" aria-hidden="true">
+    <a class="font-headline text-2xl text-primary hover:text-secondary transition-colors" href="#home">Home</a>
+    <a class="font-headline text-2xl text-primary hover:text-secondary transition-colors" href="about.html">About</a>
+    <a class="font-headline text-2xl text-primary hover:text-secondary transition-colors" href="services.html">Services</a>
+    <a class="font-headline text-2xl text-primary hover:text-secondary transition-colors" href="gallery.html">Results</a>
+    <a href="https://wa.me/5511999999999" class="mt-4 bg-secondary text-primary px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs" target="_blank" rel="noopener noreferrer">Agendar Consulta</a>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main id="main-content">
+
+    <!-- ═══ HERO SECTION ═══ -->
+    <section class="relative min-h-screen flex items-center pt-20 bg-surface" id="home" aria-labelledby="hero-title">
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-l-[200px] -z-10 hidden lg:block" aria-hidden="true"></div>
+      <div class="container mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div class="space-y-8 lg:space-y-10 reveal stagger-1">
+          <span class="font-body uppercase tracking-[0.3em] md:tracking-[0.4em] text-[10px] font-extrabold text-secondary border-l-2 border-secondary pl-4">Excelência em Odontologia</span>
+          <h1 id="hero-title" class="font-headline text-4xl sm:text-5xl md:text-[5.5rem] font-bold text-primary leading-[1.1] tracking-tight">
+            Transforme seu sorriso com <span class="italic font-normal text-secondary/90">maestria</span> clínica.
+          </h1>
+          <p class="font-body text-base md:text-lg text-on-surface-variant max-w-lg leading-relaxed font-light opacity-80">
+            Onde a ciência de vanguarda encontra a estética artesanal. Experiencie o futuro da saúde bucal em um ambiente de absoluto prestígio.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4 md:pt-6">
+            <a href="https://wa.me/5511999999999" class="bg-secondary text-primary px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs shadow-prestige hover:shadow-prestige-hover hover:-translate-y-1 transition-all duration-300 text-center" target="_blank" rel="noopener noreferrer">
+              Agendar Consulta
+            </a>
+            <a href="services.html" class="group flex items-center justify-center sm:justify-start gap-3 py-4 md:py-5 px-4 font-bold uppercase tracking-widest text-xs text-primary hover:text-secondary transition-colors">
+              Ver Tratamentos
+              <span class="material-symbols-outlined transition-transform group-hover:translate-x-2 text-secondary" aria-hidden="true">east</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Image + Floating Card -->
+        <div class="relative reveal stagger-2">
+          <div class="relative z-10 w-full aspect-[4/5] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-prestige image-zoom-container">
+            <img alt="Interior luxuoso do estúdio odontológico The Clinical Atelier com equipamentos modernos e iluminação sofisticada" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7TnEdhZDjDqCiwumQobmgtk3s-itXN5PgDTgdxUZ2HJpfuPbHVbeIbCUkluLZ2uQHZPGrqz-4fim_ATN5Rp90BjgfUxrdD2a4WopJuXhW4pP2Sx37KYpf7GkgQ18WP03irn6HEz8aHk6Hclzdixwm9jccCqRzBMopAeVVGx0fvISBaMlWzy93GlYr3cgbaPBzAL-cbMwXf-gqFk409oE1qY0OOY8Gf0ikuByNZDXrfGj3l_gtGs7_4eJMJPye5f3D1069yNRxdw" width="600" height="750" loading="eager">
+          </div>
+          <!-- Floating Glass Card -->
+          <div class="absolute -bottom-8 -left-4 lg:-bottom-12 lg:-left-12 z-20 glass-card p-6 lg:p-10 rounded-2xl lg:rounded-3xl shadow-prestige border border-white/40 max-w-[16rem] lg:max-w-sm animate-float" aria-hidden="true">
+            <div class="flex items-center gap-4 lg:gap-5 mb-4 lg:mb-5">
+              <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl bg-primary flex items-center justify-center text-secondary shadow-lg">
+                <span class="material-symbols-outlined icon-filled text-2xl lg:text-3xl">workspace_premium</span>
+              </div>
+              <div>
+                <p class="font-body font-bold text-sm lg:text-base text-primary tracking-tight">Referência Elite</p>
+                <p class="font-body text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-secondary font-extrabold">Top 1% Global</p>
+              </div>
+            </div>
+            <p class="font-body text-xs lg:text-sm text-on-surface-variant font-light leading-relaxed">Pioneirismo em tecnologia CAD/CAM e scanners intra-orais de precisão micrométrica.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ DIFFERENTIATORS ═══ -->
+    <section class="py-16 md:py-32 bg-surface-container-low border-y border-primary/5" aria-labelledby="diff-heading">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <h2 id="diff-heading" class="sr-only">Nossos Diferenciais</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
+          <article class="space-y-4 md:space-y-6 reveal stagger-1">
+            <span class="material-symbols-outlined text-4xl md:text-5xl text-secondary" aria-hidden="true">clinical_notes</span>
+            <h3 class="font-headline text-xl md:text-2xl font-bold text-primary">Atendimento Personalizado</h3>
+            <p class="font-body text-sm font-light leading-relaxed text-on-surface-variant opacity-80">Cada plano de tratamento é uma obra singular, desenhada para harmonizar com suas proporções áureas faciais.</p>
+          </article>
+          <article class="space-y-4 md:space-y-6 reveal stagger-2">
+            <span class="material-symbols-outlined text-4xl md:text-5xl text-secondary" aria-hidden="true">biotech</span>
+            <h3 class="font-headline text-xl md:text-2xl font-bold text-primary">Alta Tecnologia</h3>
+            <p class="font-body text-sm font-light leading-relaxed text-on-surface-variant opacity-80">Fluxo 100% digital, integrando inteligência artificial e robótica para resultados previsíveis e indolores.</p>
+          </article>
+          <article class="space-y-4 md:space-y-6 reveal stagger-3">
+            <span class="material-symbols-outlined text-4xl md:text-5xl text-secondary" aria-hidden="true">spa</span>
+            <h3 class="font-headline text-xl md:text-2xl font-bold text-primary">Conforto Absoluto</h3>
+            <p class="font-body text-sm font-light leading-relaxed text-on-surface-variant opacity-80">Design biofílico e concierge exclusivo, transformando sua jornada clínica em uma experiência de bem-estar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES: Bento Grid ═══ -->
+    <section class="py-16 md:py-32 bg-surface" id="services" aria-labelledby="services-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="mb-12 md:mb-24 text-center space-y-4 md:space-y-5 reveal">
+          <span class="font-body uppercase tracking-[0.3em] text-[10px] font-extrabold text-secondary">Nossas Especialidades</span>
+          <h2 id="services-title" class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary">Artesanato em cada detalhe</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8">
+          <!-- Service 1: Implants -->
+          <article class="md:col-span-3 group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-primary flex flex-col justify-end p-8 md:p-12 min-h-[350px] md:min-h-[400px] reveal shadow-prestige hover:shadow-prestige-hover transition-all" aria-labelledby="svc-implants">
+            <img alt="Tecnologia de implantes dentários 3D guiados por computador" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIfUfNlmF7sKhYr749uypE7nT3LemGrwvtgdae4sOeKIJinLFp12cbO0eDdBfk8KEMocxnGA-QbLutRxYco1wTzl9N-LAuaA5fmNCaz0gYY9-CREbPJiVouioTy4nt6zuV_Fr_uIJShVwY7DUE2xg_YXMAO0agba5-iDqzJuyDtP-r768ijRA5Hm8s8rWlYfhyaxk9L56_7b-rWOT2XsLlUyG-3xU-AIP-sV66Ipd4m_4Igv4j801P5TRuzUpZ6cSTRkVaXxX52g" loading="lazy" width="600" height="400">
+            <div class="relative z-10 space-y-4 md:space-y-5">
+              <h3 id="svc-implants" class="font-headline text-2xl md:text-4xl text-white font-semibold">Implantes 3D</h3>
+              <p class="font-body text-white/70 text-sm md:text-base max-w-sm font-light">Cirurgias guiadas para máxima segurança, precisão estética e recuperação ultrarrápida.</p>
+              <a href="services.html#implants" class="text-secondary font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3 pt-2 md:pt-4 group">
+                Saiba Mais <span class="material-symbols-outlined text-base transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true">north_east</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service 2: Veneers (spans 2 rows on desktop) -->
+          <article class="md:col-span-3 md:row-span-2 group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-surface-container-highest min-h-[400px] reveal stagger-1 shadow-prestige hover:shadow-prestige-hover transition-all" aria-labelledby="svc-veneers">
+            <img alt="Lentes de contato dental em porcelana de alta translucidez" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTK4U9PY9VskVfH3kShyeco2tmqpWiq4oYHikdPPuYfdGhlaWuPrzGwCxiR9Io_Tu1sfg3Ouyas5Zyg7TcWnxnKTrtP6_9qKuWGn4U7aKdYSHgd_YCOmt5LPeorwkubglhc6HFdxOtnzTRLLg6I8rN8Cft0KFyyN2xAKXU6FcCxN9yjeZ8VLkK3I6_SOS4Pq4wWddayUUtuTfcbyrNXwzor2eAb8utMfi4U42b4CeRY8-MbAImR4anjidRUOMGLOOHs2ld9VJsVw" loading="lazy" width="600" height="900">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-80" aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 p-8 md:p-12 space-y-4 md:space-y-5 w-full">
+              <h3 id="svc-veneers" class="font-headline text-2xl md:text-4xl text-white font-semibold">Lentes de Contato</h3>
+              <p class="font-body text-white/70 text-sm md:text-base max-w-sm font-light">Transformação biocinética do sorriso com porcelanas feldspáticas de alta translucidez.</p>
+              <a href="services.html#veneers" class="text-secondary font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-3 pt-2 md:pt-4 group">
+                Explorar Estética <span class="material-symbols-outlined text-base transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true">north_east</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service 3: Invisalign + Harmonização -->
+          <div class="md:col-span-3 grid grid-cols-2 gap-4 md:gap-8 reveal stagger-2">
+            <article class="rounded-[1.5rem] md:rounded-[2rem] bg-white p-6 md:p-10 shadow-prestige hover:shadow-prestige-hover transition-all border border-primary/5 flex flex-col justify-between group cursor-pointer min-h-[200px] md:min-h-0" aria-labelledby="svc-invisalign">
+              <span class="material-symbols-outlined text-3xl md:text-4xl text-secondary group-hover:scale-110 transition-transform duration-300" aria-hidden="true">visibility_off</span>
+              <div>
+                <h3 id="svc-invisalign" class="font-headline text-lg md:text-2xl font-bold text-primary mb-2 md:mb-3">Invisalign®</h3>
+                <p class="font-body text-[10px] md:text-xs text-on-surface-variant opacity-70 tracking-wide uppercase font-bold">Ortodontia Invisível</p>
+              </div>
+            </article>
+            <article class="rounded-[1.5rem] md:rounded-[2rem] bg-primary p-6 md:p-10 shadow-prestige hover:shadow-prestige-hover transition-all flex flex-col justify-between group cursor-pointer min-h-[200px] md:min-h-0" aria-labelledby="svc-harmonizacao">
+              <span class="material-symbols-outlined icon-filled text-3xl md:text-4xl text-secondary group-hover:scale-110 transition-transform duration-300" aria-hidden="true">face_6</span>
+              <div>
+                <h3 id="svc-harmonizacao" class="font-headline text-lg md:text-2xl font-bold text-white mb-2 md:mb-3">Harmonização</h3>
+                <p class="font-body text-[10px] md:text-xs text-white/50 tracking-wide uppercase font-bold">Estética Orofacial</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT / EXPERTISE SECTION ═══ -->
+    <section class="py-16 md:py-32 relative overflow-hidden" id="about" aria-labelledby="about-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+        <!-- Image + 15+ badge -->
+        <div class="relative reveal stagger-2 order-2 lg:order-1">
+          <div class="rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-prestige relative z-10 group">
+            <img alt="Dr. Alexandre Rossi, dentista especialista em odontologia estética" class="w-full grayscale group-hover:grayscale-0 transition-all duration-1000 object-cover aspect-[4/5]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU4nFTE1juRaaTJ4IB_g6g0QCLgVZXz1YYQqcJ_XnuueTKaEwTaNpTseRkXtERqqpOrsDdbC73RT41u-_H7EnSvVVuBBOAyFlUi1xEr-fCw0tIaowZg02vNLgAqUJ7Rrp2LdHa9vTBML9R3FkVXs2L7cdMVouTZi9iNlEe7xsYJ-hrZfbzgt86Rb43VFBWk9iTIUcBxyOH-u03tJ59SOUtvPIuP9WKZcn7kQOQ56rHSUfVpyZV2FNkbO6pNymYbU_cagLEmfseLQ" loading="lazy" width="600" height="750">
+          </div>
+          <div class="absolute -top-16 -right-16 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] -z-10" aria-hidden="true"></div>
+          <div class="absolute -bottom-6 -right-4 lg:-bottom-8 lg:-right-8 glass-card p-6 lg:p-10 rounded-2xl lg:rounded-3xl shadow-prestige z-20 border border-white/50">
+            <p class="font-body font-extrabold text-3xl lg:text-5xl text-primary tracking-tighter">15+</p>
+            <p class="font-body text-[9px] lg:text-[10px] uppercase font-bold text-secondary tracking-[0.3em] mt-1 lg:mt-2">Anos de Maestria</p>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="space-y-8 lg:space-y-10 reveal order-1 lg:order-2">
+          <span class="font-body uppercase tracking-[0.3em] text-[10px] font-extrabold text-secondary border-l-2 border-secondary pl-4">A Mente por Trás do Atelier</span>
+          <h2 id="about-title" class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">Expertise que redefine a <span class="italic font-normal">estética dental</span></h2>
+          <p class="font-body text-on-surface-variant font-light leading-relaxed text-base md:text-lg opacity-80">
+            Fundado pelo Dr. Alexandre Rossi, The Clinical Atelier nasceu da visão de que a odontologia é a fusão sublime entre medicina e arte. Com formação internacional em centros de excelência, o Dr. Rossi combina rigor técnico com uma sensibilidade artística apurada.
+          </p>
+          <div class="grid grid-cols-2 gap-6 md:gap-12 pt-2 md:pt-4">
+            <div class="border-l border-primary/10 pl-4 md:pl-8">
+              <p class="font-headline font-bold text-xl md:text-2xl text-primary">Especialista</p>
+              <p class="font-body text-[10px] uppercase font-bold text-secondary tracking-widest mt-1">USP &amp; Harvard Medical</p>
+            </div>
+            <div class="border-l border-primary/10 pl-4 md:pl-8">
+              <p class="font-headline font-bold text-xl md:text-2xl text-primary">Speaker</p>
+              <p class="font-body text-[10px] uppercase font-bold text-secondary tracking-widest mt-1">Congressos Internacionais</p>
+            </div>
+          </div>
+          <a href="about.html" class="inline-block bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-primary transition-all shadow-lg hover:shadow-secondary/20">
+            Nossa Filosofia
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ RESULTS / BEFORE-AFTER ═══ -->
+    <section class="py-16 md:py-32 bg-primary text-white" id="results" aria-labelledby="results-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+
+          <div class="space-y-8 lg:space-y-10 reveal">
+            <span class="font-body uppercase tracking-[0.3em] text-[10px] font-extrabold text-secondary border-l-2 border-secondary pl-4">Galeria de Resultados</span>
+            <h2 id="results-title" class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Transformações Reais</h2>
+            <p class="font-body text-white/60 font-light text-base md:text-lg leading-relaxed">
+              Testemunhe a convergência entre técnica e naturalidade. Criamos sorrisos que não apenas parecem perfeitos, mas que se sentem integrados à sua essência.
+            </p>
+            <ul class="space-y-4 md:space-y-6" role="list">
+              <li class="flex items-center gap-4 md:gap-5 text-white/70 group">
+                <span class="material-symbols-outlined icon-filled text-secondary text-xl md:text-2xl group-hover:scale-110 transition-transform" aria-hidden="true">check_circle</span>
+                <span class="font-body text-sm font-medium tracking-wide">Planejamento Digital DSD (Digital Smile Design)</span>
+              </li>
+              <li class="flex items-center gap-4 md:gap-5 text-white/70 group">
+                <span class="material-symbols-outlined icon-filled text-secondary text-xl md:text-2xl group-hover:scale-110 transition-transform" aria-hidden="true">check_circle</span>
+                <span class="font-body text-sm font-medium tracking-wide">Simulação Biofotogramétrica 3D</span>
+              </li>
+              <li class="flex items-center gap-4 md:gap-5 text-white/70 group">
+                <span class="material-symbols-outlined icon-filled text-secondary text-xl md:text-2xl group-hover:scale-110 transition-transform" aria-hidden="true">check_circle</span>
+                <span class="font-body text-sm font-medium tracking-wide">Materiais de Procedência Suíça e Alemã</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Before/After Image -->
+          <div class="relative reveal stagger-2 group cursor-pointer overflow-hidden rounded-[2rem] lg:rounded-[3rem] shadow-2xl aspect-[16/10] border-4 border-white/5" role="img" aria-label="Comparação antes e depois de tratamento com lentes de porcelana">
+            <div class="absolute inset-0 flex">
+              <div class="w-1/2 overflow-hidden relative border-r border-white/20">
+                <img alt="Sorriso antes do tratamento" class="absolute inset-0 h-full w-[200%] object-cover object-left brightness-75 grayscale-[0.2]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfV88msrdue4IJuDS5GLDZRk6P_M6CRyIsbFCSsXdcEZmVGCBf2IBc30xtJs257YJDOQFDaNogAtkK5QV7vvc-9f5m9PgAz-321bU1uJrrF8Kqse1_MDukYc2xDra_JFa9wgPChtTbNfobDP1GDhWhiRu9OLuYcpom8rT8juf7O7dLH6enlFTVlMSPpXUFaxDHkrNEAPBfNhNNLH_N5OI_SSQjlTC5mb7afaQYbb_9gFq8j0-8c1Us0FE3IuXRq6G9Ibe-mgghKg" loading="lazy">
+                <span class="absolute top-4 left-4 lg:top-6 lg:left-6 glass-card bg-primary/40 px-4 lg:px-6 py-1.5 lg:py-2 rounded-full text-[9px] lg:text-[10px] uppercase font-bold tracking-[0.2em] text-white">Antes</span>
+              </div>
+              <div class="w-1/2 overflow-hidden relative">
+                <img alt="Sorriso após tratamento com lentes de porcelana" class="absolute inset-0 h-full w-[200%] object-cover object-right" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvCO6OcN1wnuQamXhBkpelEoVR674QBjNn19FNOV5tmS9Wg4G0o4xRJIg_174OX0p7WYmdhHCAzoK_ssK1Scsu26LYkJL4uttvTqfto4dxNHNTdYlDurTk974YkKfudXnNwynQMezJt7hishf3I_K6P1ylsVOmZ5xPjKkL6cRDgeC8KCxeFnNPfhi0idTqfJcYPxpcnmm3zDqP4tQrMPSvc-ftIhXivNVC3khm83VHtwpGNn0bWNLUkZFWI0xylth1N-W3pPYiKw" loading="lazy">
+                <span class="absolute top-4 right-4 lg:top-6 lg:right-6 glass-card bg-secondary/80 px-4 lg:px-6 py-1.5 lg:py-2 rounded-full text-[9px] lg:text-[10px] uppercase font-bold tracking-[0.2em] text-primary">Depois</span>
+              </div>
+            </div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl z-30 group-hover:scale-110 transition-transform duration-500" aria-hidden="true">
+              <span class="material-symbols-outlined text-primary text-2xl lg:text-3xl">unfold_more_double</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="py-16 md:py-32 bg-surface" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="mb-12 md:mb-24 reveal">
+          <h2 id="testimonials-title" class="font-headline text-3xl md:text-5xl font-bold text-primary">O que dizem nossos <span class="italic font-normal text-secondary">patronos</span></h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+
+          <!-- Testimonial 1 -->
+          <article class="bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-prestige hover:shadow-prestige-hover transition-all duration-500 border border-primary/5 reveal stagger-1" aria-label="Depoimento de Ricardo Silveira">
+            <div class="flex gap-1 mb-6 md:mb-8 text-secondary" aria-label="5 de 5 estrelas">
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="font-body text-on-surface-variant font-light leading-relaxed mb-8 md:mb-10 text-base md:text-lg opacity-80">"Superou todas as expectativas. O atendimento é impecável e a tecnologia utilizada no meu implante foi algo sem precedentes."</blockquote>
+            <div class="flex items-center gap-4 md:gap-5">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border-2 border-secondary/20">
+                <img alt="Foto de Ricardo Silveira" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIvz7wk46vraZ29qRjyUvb5RlcLdPex0wEOGdTXlJBPJKFOQgbSBmdFKRa-JM2QCYW-pLnVLy4JHiSk5KjWnGV2C4X272_wE1lhhKCOmdZC4PSP8P_oDrF3lPnaze7X_xp-0IfF_NE_oXuLVcW603HrFN7ny465wlaC3GcqCXhUaNu5yDmDf_01XRayi5na5cBdvEeAPAYD7dbdXs2vEQGaDdO4f8Lwt0VCLPWDDCe3-IrDT1x2eQOW2O4ZMQYb2lBtjI520_5Jg" loading="lazy" width="56" height="56">
+              </div>
+              <div>
+                <p class="font-body font-bold text-sm md:text-base text-primary">Ricardo Silveira</p>
+                <p class="font-body text-[10px] uppercase font-bold text-secondary tracking-widest mt-1">Arquiteto</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 (offset) -->
+          <article class="bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-prestige hover:shadow-prestige-hover transition-all duration-500 border border-primary/5 md:translate-y-12 reveal stagger-2" aria-label="Depoimento de Beatriz Mendes">
+            <div class="flex gap-1 mb-6 md:mb-8 text-secondary" aria-label="5 de 5 estrelas">
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="font-body text-on-surface-variant font-light leading-relaxed mb-8 md:mb-10 text-base md:text-lg opacity-80">"As lentes mudaram minha autoconfiança. Dr. Rossi é um verdadeiro artista. A naturalidade e o brilho são impressionantes."</blockquote>
+            <div class="flex items-center gap-4 md:gap-5">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border-2 border-secondary/20">
+                <img alt="Foto de Beatriz Mendes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYIdalyx3ZxHQINs9uxkMlJuPvJztyJ8kvTI1ZD6VhnZZ909qJHI1Jl0UtCeHHJTuakTMZcLCDrIufe3j30BY1KVN_ba6seZ94nszSPufHFWJdce6OAKaCjtBi1rg8gaxkIbtFspz1ds01jXvIhqxbDDmS-_EgSozvU58Eu9B_KSJ8J4hUM4PWL_2D8GZCLi8YePtP7GwV1TGLelXosKmTKMHhjDjB4CR4u7eieCwzvIqli2PB-LjcKjn7ZnxiMkEzjr995J2Kww" loading="lazy" width="56" height="56">
+              </div>
+              <div>
+                <p class="font-body font-bold text-sm md:text-base text-primary">Beatriz Mendes</p>
+                <p class="font-body text-[10px] uppercase font-bold text-secondary tracking-widest mt-1">Diretora de Marketing</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-prestige hover:shadow-prestige-hover transition-all duration-500 border border-primary/5 reveal stagger-3" aria-label="Depoimento de Paulo Vasconcellos">
+            <div class="flex gap-1 mb-6 md:mb-8 text-secondary" aria-label="5 de 5 estrelas">
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined icon-filled text-lg md:text-xl" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="font-body text-on-surface-variant font-light leading-relaxed mb-8 md:mb-10 text-base md:text-lg opacity-80">"Um oásis de tranquilidade e alta performance. Equipe atenciosa e pontualidade britânica. Recomendaria sem hesitar."</blockquote>
+            <div class="flex items-center gap-4 md:gap-5">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl overflow-hidden shadow-lg border-2 border-secondary/20">
+                <img alt="Foto de Paulo Vasconcellos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXU6dYwvvKWkATYvflf-6H2m5Dh2a_s52gPz7Dz1hT18RkAVMXSm2QEYs_vK-isl2KXiDMV80tz0rXqanY5VvR2BBqDWy9twNAsCkl7MH7jbY8yK8ILw08Kkd9yNbTOzaBy_5DiLrQikkwmns7pG3KCYvFwIqTgXwY7jTzjbIvqLzGqIMuUOwafkOAEW8B6tIptaPErlRBlwZcXDEy2ZcstL0Gr4V6ihvaszVMNkW34WD7f7yevxOo3pFFYEeyobqXujC2E6PvA" loading="lazy" width="56" height="56">
+              </div>
+              <div>
+                <p class="font-body font-bold text-sm md:text-base text-primary">Paulo Vasconcellos</p>
+                <p class="font-body text-[10px] uppercase font-bold text-secondary tracking-widest mt-1">Empresário</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STRONG CTA ═══ -->
+    <section class="py-20 md:py-32 relative overflow-hidden bg-primary" aria-labelledby="cta-title">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" aria-hidden="true"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(203,167,47,0.1)_0%,_transparent_70%)]" aria-hidden="true"></div>
+      <div class="max-w-5xl mx-auto px-6 md:px-8 text-center relative z-10 space-y-8 md:space-y-12 reveal">
+        <h2 id="cta-title" class="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">Pronto para elevar seu padrão de saúde bucal?</h2>
+        <p class="font-body text-white/60 text-base md:text-xl font-light max-w-2xl mx-auto">Agende sua consulta de avaliação premium com nosso concierge e inicie sua jornada para o sorriso perfeito.</p>
+        <div class="flex justify-center pt-4 md:pt-8">
+          <a href="https://wa.me/5511999999999" class="bg-secondary text-primary px-10 md:px-16 py-4 md:py-6 rounded-full font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-xs md:text-sm hover:scale-105 hover:shadow-secondary/30 transition-all duration-500 shadow-2xl" target="_blank" rel="noopener noreferrer">
+            Comece sua Transformação Hoje
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="py-16 md:py-32 bg-surface" id="contact" aria-labelledby="contact-title">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+
+        <div class="space-y-10 md:space-y-16 reveal">
+          <div>
+            <span class="font-body uppercase tracking-[0.3em] text-[10px] font-extrabold text-secondary border-l-2 border-secondary pl-4">Localização &amp; Contato</span>
+            <h2 id="contact-title" class="font-headline text-3xl md:text-5xl font-bold text-primary mt-4 md:mt-6 tracking-tight">Onde a arte acontece</h2>
+          </div>
+          <div class="space-y-8 md:space-y-10">
+            <address class="flex items-start gap-6 md:gap-8 group not-italic">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-prestige flex items-center justify-center shrink-0 border border-primary/5 transition-colors group-hover:bg-secondary group-hover:text-white">
+                <span class="material-symbols-outlined text-secondary group-hover:text-white" aria-hidden="true">location_on</span>
+              </div>
+              <div>
+                <p class="font-body font-bold text-primary text-base md:text-lg">Endereço</p>
+                <p class="font-body text-sm md:text-base text-on-surface-variant font-light opacity-80 mt-1">Av. Pres. Faria Lima, 4500 - Itaim Bibi, São Paulo - SP</p>
+              </div>
+            </address>
+            <div class="flex items-start gap-6 md:gap-8 group">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-prestige flex items-center justify-center shrink-0 border border-primary/5 transition-colors group-hover:bg-secondary group-hover:text-white">
+                <span class="material-symbols-outlined text-secondary group-hover:text-white" aria-hidden="true">schedule</span>
+              </div>
+              <div>
+                <p class="font-body font-bold text-primary text-base md:text-lg">Horário de Atendimento</p>
+                <p class="font-body text-sm md:text-base text-on-surface-variant font-light opacity-80 mt-1">Segunda a Sexta: 08:00 - 20:00<br>Sábados: 09:00 - 14:00</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-6 md:gap-8 group">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-prestige flex items-center justify-center shrink-0 border border-primary/5 transition-colors group-hover:bg-secondary group-hover:text-white">
+                <span class="material-symbols-outlined text-secondary group-hover:text-white" aria-hidden="true">phone_iphone</span>
+              </div>
+              <div>
+                <p class="font-body font-bold text-primary text-base md:text-lg">WhatsApp &amp; Telefone</p>
+                <p class="font-body text-sm md:text-base text-on-surface-variant font-light opacity-80 mt-1">
+                  <a href="tel:+5511999999999" class="hover:text-secondary transition-colors">+55 (11) 99999-9999</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 md:pt-8">
+            <a class="inline-flex items-center gap-4 md:gap-5 bg-[#25D366] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:shadow-xl hover:-translate-y-1 transition-all" href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="Iniciar conversa pelo WhatsApp">
+              <span class="material-symbols-outlined text-lg md:text-xl" aria-hidden="true">chat_bubble</span> Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-prestige h-[350px] md:h-[500px] lg:h-[600px] border-4 md:border-8 border-white reveal stagger-2">
+          <img alt="Mapa mostrando a localização da clínica The Clinical Atelier na Av. Faria Lima, São Paulo" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5EXvp2jvLQFrZW1buJHuxnub0zf_b4hCHV7uo5_h7iCO55R-ZUUBfh3F5nkiBigcgx_wurxNGyh8uS6WqhyfQiAhiPW15FDm45GUDbR8zAxrgNOee7mPzRhhyIjwM24ljMAeEFmRTqKocSTHSe3mkx5gvQae4a9aFYygkdKaQgQx5iXyXDmilWJHfHZI_0OTyVKyuTxCFKZF3dz50ey6zEHF8pOiDFgrjmiH9Yv_AqvulsEIwpNr81RHKzRwwtGlA6D7B9xBLNg" loading="lazy" width="600" height="600">
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-primary pt-16 md:pt-24 pb-8 md:pb-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+      <div class="space-y-6 md:space-y-8 sm:col-span-2 md:col-span-1">
+        <p class="text-xl md:text-2xl font-headline text-white font-semibold">The Clinical Atelier</p>
+        <p class="font-body font-light text-sm text-white/40 leading-relaxed">Referência em reabilitação oral e estética dental de alta performance. Redefinindo o cuidado com o sorriso através do luxo clínico.</p>
+        <div class="flex gap-4 md:gap-5">
+          <a class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl border border-white/10 flex items-center justify-center text-white/40 hover:text-secondary hover:border-secondary transition-all" href="#" aria-label="Website" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-lg" aria-hidden="true">public</span>
+          </a>
+          <a class="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl border border-white/10 flex items-center justify-center text-white/40 hover:text-secondary hover:border-secondary transition-all" href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-lg" aria-hidden="true">photo_camera</span>
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Links de serviços">
+        <h3 class="font-headline text-secondary font-bold tracking-widest uppercase text-xs mb-6 md:mb-8">Serviços</h3>
+        <ul class="font-body font-light text-sm space-y-4 md:space-y-5 text-white/50">
+          <li><a class="hover:text-secondary transition-all" href="services.html#veneers">Lentes de Porcelana</a></li>
+          <li><a class="hover:text-secondary transition-all" href="services.html#implants">Implantes Guiados</a></li>
+          <li><a class="hover:text-secondary transition-all" href="services.html#invisalign">Invisalign® Platinum</a></li>
+          <li><a class="hover:text-secondary transition-all" href="services.html#facial">Harmonização Orofacial</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Links do menu">
+        <h3 class="font-headline text-secondary font-bold tracking-widest uppercase text-xs mb-6 md:mb-8">Menu</h3>
+        <ul class="font-body font-light text-sm space-y-4 md:space-y-5 text-white/50">
+          <li><a class="hover:text-secondary transition-all" href="about.html">O Atelier</a></li>
+          <li><a class="hover:text-secondary transition-all" href="gallery.html">Casos Clínicos</a></li>
+          <li><a class="hover:text-secondary transition-all" href="#">Journal de Estética</a></li>
+          <li><a class="hover:text-secondary transition-all" href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Links legais">
+        <h3 class="font-headline text-secondary font-bold tracking-widest uppercase text-xs mb-6 md:mb-8">Legal</h3>
+        <ul class="font-body font-light text-sm space-y-4 md:space-y-5 text-white/50">
+          <li><a class="hover:text-secondary transition-all" href="#">Política de Privacidade</a></li>
+          <li><a class="hover:text-secondary transition-all" href="#">Termos de Uso</a></li>
+          <li><a class="hover:text-secondary transition-all" href="#">Ética Profissional</a></li>
+          <li><a class="hover:text-secondary transition-all" href="#">Portal do Paciente</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 md:px-8 pt-10 md:pt-16 mt-12 md:mt-20 border-t border-white/5">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+        <p class="font-body font-light text-[10px] text-white/20 tracking-widest uppercase text-center md:text-left">&copy; 2025 The Clinical Atelier. Elite Dental Craftsmanship.</p>
+        <p class="font-body font-light text-[10px] text-white/20 tracking-widest uppercase">RT: Dr. Alexandre Rossi - CRO-SP 123.456</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ WhatsApp FAB (apenas WhatsApp, sem telefone) ═══ -->
+  <a href="https://wa.me/5511999999999" class="fixed bottom-8 right-8 z-50 bg-secondary text-primary p-4 rounded-2xl shadow-prestige hover:scale-110 active:scale-95 transition-all" target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">
+    <span class="material-symbols-outlined icon-filled text-2xl" aria-hidden="true">chat_bubble</span>
+  </a>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+    'use strict';
+
+    /* Scroll Reveal */
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('active'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+    })();
+
+    /* Mobile Menu */
+    (function() {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var bar1 = document.getElementById('bar1');
+      var bar2 = document.getElementById('bar2');
+      var bar3 = document.getElementById('bar3');
+      if (!toggle || !menu) return;
+
+      function isOpen() { return toggle.getAttribute('aria-expanded') === 'true'; }
+
+      function open() {
+        toggle.setAttribute('aria-expanded', 'true');
+        menu.classList.add('open');
+        menu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        bar1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      }
+
+      function close() {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('open');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        bar1.style.transform = '';
+        bar2.style.opacity = '';
+        bar3.style.transform = '';
+      }
+
+      toggle.addEventListener('click', function() { isOpen() ? close() : open(); });
+      menu.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', close); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen()) { close(); toggle.focus(); } });
+    })();
+
+    /* Smooth scroll with header offset */
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var id = this.getAttribute('href');
+        if (id === '#') return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        var offset = document.querySelector('header').offsetHeight + 20;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <!-- sr-only utility -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+</body>
+</html>
