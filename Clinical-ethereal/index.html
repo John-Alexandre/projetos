@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clinical Ethereal — Cuidado dental de precisão. Tecnologia 3D de ponta e design arquitetônico para reinventar seu sorriso." />
+  <title>Clinical Ethereal | Reinventando seu Sorriso</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#638eff",
+            "outline-variant": "#abadaf",
+            "on-primary-fixed": "#000000",
+            "surface-tint": "#0052d0",
+            "tertiary-fixed": "#f39cfb",
+            "on-error-container": "#570008",
+            "inverse-on-surface": "#9a9d9f",
+            "background": "#f5f7f9",
+            "error-container": "#fb5151",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#d0d5d8",
+            "on-tertiary-fixed": "#41004d",
+            "surface-container-highest": "#d9dde0",
+            "outline": "#747779",
+            "inverse-primary": "#5e8bff",
+            "surface-variant": "#d9dde0",
+            "tertiary-container": "#f39cfb",
+            "surface-container-low": "#eef1f3",
+            "on-primary-container": "#001e58",
+            "inverse-surface": "#0b0f10",
+            "on-background": "#2c2f31",
+            "tertiary": "#883c93",
+            "secondary-fixed": "#a7d7ff",
+            "on-surface-variant": "#595c5e",
+            "surface": "#f5f7f9",
+            "secondary": "#17618b",
+            "on-primary-fixed-variant": "#00276c",
+            "error": "#b31b25",
+            "tertiary-dim": "#7a2f86",
+            "on-surface": "#2c2f31",
+            "surface-container": "#e5e9eb",
+            "on-tertiary": "#ffeefb",
+            "primary-fixed": "#799dff",
+            "secondary-container": "#a7d7ff",
+            "on-error": "#ffefee",
+            "on-secondary-container": "#004c71",
+            "on-secondary-fixed": "#003855",
+            "on-tertiary-container": "#60136d",
+            "on-tertiary-fixed-variant": "#6a1f77",
+            "on-secondary-fixed-variant": "#00567f",
+            "tertiary-fixed-dim": "#e48fed",
+            "on-secondary": "#eaf4ff",
+            "secondary-dim": "#00557d",
+            "primary-container": "#799dff",
+            "surface-bright": "#f5f7f9",
+            "error-dim": "#9f0519",
+            "surface-container-high": "#dfe3e6",
+            "primary-dim": "#0047b7",
+            "primary": "#0052d0",
+            "on-primary": "#f1f2ff",
+            "secondary-fixed-dim": "#8dcafa"
+          },
+          fontFamily: {
+            headline: ["Manrope", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Material Symbols */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Glass effects */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    /* WhatsApp floating button */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 40;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-fab:active {
+      transform: scale(0.95);
+    }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #0052d0 0%, #799dff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Animations */
+    .floating-3d {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%   { transform: translateY(0px) rotate(0deg); }
+      50%  { transform: translateY(-20px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    /* Smooth transitions */
+    .tonal-transition {
+      transition: background-color 0.3s ease;
+    }
+
+    /* Perspective text */
+    .perspective-text {
+      text-shadow: 0 10px 30px rgba(0, 82, 208, 0.1);
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    #mobile-menu.open {
+      max-height: 280px;
+    }
+
+    /* Scroll active indicator */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link.active {
+      color: #1d4ed8;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased">
+
+  <!-- ════════════════════════════════════════════
+       HEADER / NAVIGATION
+       ════════════════════════════════════════════ -->
+  <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,82,208,0.04)] tonal-transition" role="banner">
+    <nav class="flex justify-between items-center px-4 md:px-8 py-2 md:py-4 max-w-7xl mx-auto" aria-label="Navegação principal">
+      <a href="#inicio" class="text-lg md:text-2xl font-extrabold tracking-tighter text-blue-700 font-headline" aria-label="Clinical Ethereal — Página inicial">
+        Clinical Ethereal
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex space-x-8 items-center list-none" role="menubar">
+        <li role="none"><a role="menuitem" class="nav-link font-headline font-bold tracking-tight text-sm uppercase text-slate-600 hover:text-blue-600 transition-colors" href="#inicio">Início</a></li>
+        <li role="none"><a role="menuitem" class="nav-link font-headline font-bold tracking-tight text-sm uppercase text-slate-600 hover:text-blue-600 transition-colors" href="#servicos">Serviços</a></li>
+        <li role="none"><a role="menuitem" class="nav-link font-headline font-bold tracking-tight text-sm uppercase text-slate-600 hover:text-blue-600 transition-colors" href="#sobre">Sobre Nós</a></li>
+
+      </ul>
+
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 bg-[#25D366] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 active:scale-95 transition-all">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar via WhatsApp
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-toggle" class="md:hidden p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu de navegação">
+        <span class="material-symbols-outlined text-on-surface text-xl">menu</span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <nav id="mobile-menu" class="md:hidden px-4 pb-2" aria-label="Menu mobile">
+      <ul class="space-y-1 list-none">
+        <li><a href="#inicio" class="block py-2 px-3 rounded-xl font-headline font-bold text-xs uppercase text-slate-600 hover:bg-surface-container-low transition-colors">Início</a></li>
+        <li><a href="#servicos" class="block py-2 px-3 rounded-xl font-headline font-bold text-xs uppercase text-slate-600 hover:bg-surface-container-low transition-colors">Serviços</a></li>
+        <li><a href="#sobre" class="block py-2 px-3 rounded-xl font-headline font-bold text-xs uppercase text-slate-600 hover:bg-surface-container-low transition-colors">Sobre Nós</a></li>
+        <li><a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-[#25D366] text-white font-bold text-xs text-center">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar via WhatsApp
+        </a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="pt-16 md:pt-24 overflow-hidden" role="main">
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 1 — HERO (INÍCIO)
+         ════════════════════════════════════════════ -->
+    <section id="inicio" class="relative min-h-[85vh] flex items-center px-6 md:px-8 lg:px-24 py-16" aria-labelledby="hero-heading">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="z-10">
+          <span class="inline-block px-4 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-xs tracking-widest uppercase mb-6">
+            Pioneirismo em Bem-Estar Dental
+          </span>
+          <h1 id="hero-heading" class="font-headline text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight leading-[1.05] text-on-surface mb-8">
+            Reinventando <br />seu <span class="text-gradient">Sorriso.</span>
+          </h1>
+          <p class="text-on-surface-variant text-lg md:text-2xl max-w-lg mb-12 leading-relaxed">
+            Experimente um novo padrão de cuidados odontológicos, onde a tecnologia de ponta encontra a precisão artística em um santuário digital.
+          </p>
+          <div class="flex flex-wrap gap-4 md:gap-6">
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-[#25D366]/20 transition-all">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Agendar via WhatsApp
+            </a>
+            <a href="#servicos" class="bg-surface-container-highest text-on-surface px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:bg-surface-container-high transition-all inline-block">
+              Ver Serviços
+            </a>
+          </div>
+        </div>
+
+        <figure class="relative flex justify-center" aria-hidden="true">
+          <div class="absolute -top-10 -right-10 lg:-top-20 lg:-right-20 w-[300px] h-[300px] lg:w-[600px] lg:h-[600px] bg-primary/5 rounded-full blur-[60px] lg:blur-[100px]"></div>
+          <img
+            class="relative z-10 w-64 h-auto lg:w-full drop-shadow-[0_20px_100px_rgba(0,82,208,0.15)] floating-3d lg:scale-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI_o92r05J2-zHZqRUBMZuZm4zClUvjYbN5aFX68yFQyZK37MU350qirmpW1wLhyHDqovwWGT-nraFplbYQ8Rn4rj9C7gdOseXqBvs14BeD4Mmd-ukmBrBblaKpWYkXi3Bcv9K4xlTh0gwAq8Syi0lh_UtggYxxa9_SbCvlca8cf42x34yj8eUjZZcusuNu5EWfIZflcVB_VydQ-uyJDQnX37ao0OBr744Lhy7Q4Haf2nNmd6n9yRLYYCdSkjDuNQ9pKLG8pFqyoA"
+            alt="Renderização 3D hiper-realista de um dente molar branco com acabamento perolado flutuando em um espaço digital clínico"
+            width="500"
+            height="500"
+            loading="eager"
+          />
+          <!-- Floating precision badge -->
+          <div class="hidden lg:flex absolute top-1/4 -left-12 glass-card p-6 rounded-2xl shadow-xl z-20 border border-white/20">
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">verified</span>
+              <div>
+                <p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Precisão</p>
+                <p class="font-bold text-on-surface">99.9% de Exatidão</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 2 — POR QUE A CLINICAL ETHEREAL
+         ════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 px-6 md:px-8 lg:px-24 bg-surface-container-low" aria-labelledby="porque-heading">
+      <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-16 md:mb-24">
+          <h2 id="porque-heading" class="font-headline text-3xl md:text-5xl font-bold mb-6">Por que a Clinical Ethereal?</h2>
+          <p class="text-on-surface-variant max-w-2xl mx-auto text-base md:text-lg">Combinamos precisão arquitetônica com excelência médica para entregar resultados funcionais e deslumbrantes.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:h-[600px]">
+          <!-- Large Feature -->
+          <article class="md:col-span-2 md:row-span-2 rounded-[2rem] bg-surface-container-lowest shadow-sm relative overflow-hidden flex flex-col group">
+            <!-- Mobile: image as normal block element on top -->
+            <figure class="relative w-full h-56 md:hidden flex-shrink-0">
+              <img class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlUfW2BAitwJv9mbE0m6L4Tnx9pLf1hUPLqCxUtt02dBUrTxqjLOrHCBQq2_pMWW3HJEREEOEq1ruZhgUcSZVl09rbKXF-TFULjEAXmBW8MLfc8t6SfSP9K--IYBvDX_rng8RxLFcs-vVpwgJg_jWn5ZUzrUOkIdnJsaiYz6Bj4XaE9kGZ8FSMH097oXILpcZf84lMC_MSm1hgqBVmT8q9yDHUQcZmFX9GoAZpKFw6chrj9gbVLn3ung3a29mUnvMEookN8OuKP4I"
+                alt="Interior de uma clínica odontológica futurista com iluminação azul ambiente e design minimalista"
+                loading="lazy" />
+            </figure>
+            <!-- Desktop: image as absolute positioned on right side -->
+            <figure class="absolute top-0 right-0 w-1/2 h-full hidden md:block">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlUfW2BAitwJv9mbE0m6L4Tnx9pLf1hUPLqCxUtt02dBUrTxqjLOrHCBQq2_pMWW3HJEREEOEq1ruZhgUcSZVl09rbKXF-TFULjEAXmBW8MLfc8t6SfSP9K--IYBvDX_rng8RxLFcs-vVpwgJg_jWn5ZUzrUOkIdnJsaiYz6Bj4XaE9kGZ8FSMH097oXILpcZf84lMC_MSm1hgqBVmT8q9yDHUQcZmFX9GoAZpKFw6chrj9gbVLn3ung3a29mUnvMEookN8OuKP4I"
+                alt="Interior de uma clínica odontológica futurista com iluminação azul ambiente e design minimalista"
+                loading="lazy" />
+            </figure>
+            <div class="relative z-10 md:w-1/2 p-8 md:p-12 flex flex-col justify-end flex-1">
+              <span class="material-symbols-outlined text-primary text-5xl mb-6" aria-hidden="true">biotech</span>
+              <h3 class="font-headline text-2xl md:text-3xl font-bold mb-4">Tecnologia de Precisão</h3>
+              <p class="text-on-surface-variant mb-6 leading-relaxed">Utilizando escaneamento intraoral 3D e diagnósticos orientados por IA para resultados perfeitamente personalizados.</p>
+              <a href="#sobre" class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                Saiba mais <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Small Feature 1 -->
+          <article class="rounded-[2rem] bg-surface-container-lowest p-8 shadow-sm flex flex-col justify-center">
+            <span class="material-symbols-outlined text-secondary text-4xl mb-4" aria-hidden="true">spa</span>
+            <h3 class="font-headline text-xl font-bold mb-2">Santuário do Paciente</h3>
+            <p class="text-on-surface-variant text-sm">Experimente uma terapia projetada para o máximo conforto e serenidade sensorial.</p>
+          </article>
+
+          <!-- Small Feature 2 -->
+          <article class="rounded-[2rem] bg-primary text-on-primary p-8 shadow-sm flex flex-col justify-center">
+            <span class="material-symbols-outlined text-on-primary text-4xl mb-4" aria-hidden="true">schedule</span>
+            <h3 class="font-headline text-xl font-bold mb-2">Atendimento Express</h3>
+            <p class="text-on-primary opacity-80 text-sm">Procedimentos no mesmo dia possibilitados pelo nosso laboratório interno de impressão 3D.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 3 — SERVIÇOS
+         ════════════════════════════════════════════ -->
+    <section id="servicos" class="py-24 md:py-32 px-6 md:px-8 lg:px-24" aria-labelledby="servicos-heading">
+      <div class="max-w-7xl mx-auto">
+        <header class="max-w-3xl mb-16 md:mb-24">
+          <span class="font-label text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Precisão de Classe Mundial</span>
+          <h2 id="servicos-heading" class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.1]">
+            Elevando a <em class="text-primary not-italic">Arte</em> do Sorriso.
+          </h2>
+          <p class="text-on-surface-variant text-base md:text-xl leading-relaxed">
+            Experimente um santuário digital onde diagnósticos 3D avançados encontram a habilidade clínica artesanal. Nós não apenas tratamos dentes; arquitetamos confiança.
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1: Clareamento -->
+          <article class="group bg-surface-container-lowest p-8 rounded-xl shadow-[0_10px_40px_rgba(44,47,49,0.03)] hover:shadow-[0_20px_60px_rgba(0,82,208,0.08)] transition-all duration-500">
+            <figure class="mb-8 overflow-hidden rounded-lg h-48 bg-surface-container-low relative">
+              <img alt="Procedimento de clareamento dental com luz UV azul em clínica de luxo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiAjntfkzEQgfvOpWJs3jAomdZJB2on5GlXXiXAYT-Qg3nYtSQ9lf1TFqZIdjyf-wRi6-UBreji_LxR8hA6_v4f1IFNlasqAhf3XHAwHGoJcSCQV7Ti-mLX3S9l11QBgMMqVU3msa1Lv40f6qWTjRelFq_BhUpKotMnwbsjqyfUtP85sq6YjNwHzO-4LTXTW90tCxMtBN1AIIrwwhlzXeNHvxRKVHJTqtLxmqD1t7Up_IQJ0F33ErDAeC24ILEFEUP0wzZkq9wytE" />
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+            </figure>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">auto_awesome</span>
+              <h3 class="font-headline text-2xl font-bold tracking-tight">Clareamento Dental</h3>
+            </div>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+              Utilizando tecnologia laser avançada para remover manchas profundas enquanto protege a integridade do esmalte para um brilho radiante e etéreo.
+            </p>
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+              Explorar Tratamento <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </a>
+          </article>
+
+          <!-- Card 2: Implantes -->
+          <article class="group bg-surface-container-lowest p-8 rounded-xl shadow-[0_10px_40px_rgba(44,47,49,0.03)] hover:shadow-[0_20px_60px_rgba(0,82,208,0.08)] transition-all duration-500">
+            <figure class="mb-8 overflow-hidden rounded-lg h-48 bg-surface-container-low relative">
+              <img alt="Renderização 3D de implante dentário em titânio com detalhes de engenharia de precisão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwg_mrPSy4ewWa1-ps-pdttpRSwiddhxv1wB0196UenV-X6WXOxSKjtgcaCjH1cwdc2M2K6BIqcWrySFATc3LuE7RzDZmkMUiHPdHXxvkOVZ1kcjcn52T780cRZ_im5E1Z42v3lc8FG3WcEXhF02NRFpsxWL7qQiHH0GjKsMO2kWcgMbK_Ge9QXbyRh6ISQ9it8e_7A0tMT9oZzyL7-42m-ErCG6wEKrfakM8vI1ZJUEH52aGmy2vUlYIZjUFMuPWSDY21X58rD3I" />
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+            </figure>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">precision_manufacturing</span>
+              <h3 class="font-headline text-2xl font-bold tracking-tight">Implantes Dentários</h3>
+            </div>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+              Soluções restauradoras de última geração utilizando mapeamento ósseo 3D e titânio biocompatível para integridade estrutural vitalícia.
+            </p>
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+              Explorar Tratamento <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </a>
+          </article>
+
+          <!-- Card 3: Ortodontia -->
+          <article class="group bg-surface-container-lowest p-8 rounded-xl shadow-[0_10px_40px_rgba(44,47,49,0.03)] hover:shadow-[0_20px_60px_rgba(0,82,208,0.08)] transition-all duration-500">
+            <figure class="mb-8 overflow-hidden rounded-lg h-48 bg-surface-container-low relative">
+              <img alt="Alinhadores dentais transparentes em pedestal 3D minimalista com iluminação suave de estúdio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuByLHm4nAdTbCK7l8-9xICxrJutYlA2H4YpcRILoiffUAf0eVjbi1Lp-dAS3YeaolL7TogadshfFcDdKdxfs-p1TXIFSrestveIE-s444RvxCvzsA-Y4ufyRBu6neTu1eoUg_9L2qnbg8olNy7io4Nktl1BKYYfbfmybbc26lk0rWNtCVC6ZcW-AKhOzzt_XdJ9zglO1fKSxlQb0GEuY7QEyQJQeVVItj0ClqQdByKFvPLxcHwP_z4OW1S9hnr32ercwa9X6Ovdyvo" />
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+            </figure>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">architecture</span>
+              <h3 class="font-headline text-2xl font-bold tracking-tight">Ortodontia</h3>
+            </div>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+              Alinhadores invisíveis e sistemas de braquetes inteligentes projetados para harmonizar sua mordida com precisão matemática.
+            </p>
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+              Explorar Tratamento <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </a>
+          </article>
+
+          <!-- Card 4: Clínica Geral (wide) -->
+          <article class="group bg-surface-container-lowest p-8 rounded-xl shadow-[0_10px_40px_rgba(44,47,49,0.03)] hover:shadow-[0_20px_60px_rgba(0,82,208,0.08)] transition-all duration-500 md:col-span-2">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+              <figure class="w-full md:w-1/2 overflow-hidden rounded-lg h-64 bg-surface-container-low relative">
+                <img alt="Ferramentas dentárias de alta tecnologia em ambiente clínico moderno com destaques em azul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" loading="lazy"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3qlBAXHMJX3kX3krTFR4qFDsUmBAUlG6uXLykrjj2rri1UEs2K6Duujf-phWYsTtzzizpDafHLbIuME2_gw1r7lg0YOQvPd6zUnNmIABoSAdgCPqVTGupUFQuRVvz7GyzbwUaf9jGwoRs-FSbdkj_mFHKfUq386l9esEliYTVRr_oGQlpI3oOGNCai-bfQIVc4vrn72yTE8HRfk5eyDbeGm1KywtldusPc-PsHk5rDTK25EqNECPZUFSKdvXiJ5Qb1QfjAXpmn_Y" />
+                <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+              </figure>
+              <div class="w-full md:w-1/2">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary" aria-hidden="true">health_and_safety</span>
+                  <h3 class="font-headline text-2xl md:text-3xl font-bold tracking-tight">Clínica Geral</h3>
+                </div>
+                <p class="text-on-surface-variant mb-6 leading-relaxed">
+                  Domínio preventivo e saúde fundamental. De limpezas ultrassônicas a triagens biológicas, garantimos que seu ecossistema oral permaneça perfeitamente equilibrado.
+                </p>
+                <ul class="grid grid-cols-2 gap-3 mb-8" role="list">
+                  <li class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant">
+                    <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span> Raspagem Ultrassônica
+                  </li>
+                  <li class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant">
+                    <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span> Raios-X Digitais
+                  </li>
+                  <li class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant">
+                    <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span> Bioanálise
+                  </li>
+                  <li class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant">
+                    <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span> Protetor de Cárie
+                  </li>
+                </ul>
+                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                  Agendar Exame <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Restauração Estética -->
+          <article class="group bg-surface-container-lowest p-8 rounded-xl shadow-[0_10px_40px_rgba(44,47,49,0.03)] hover:shadow-[0_20px_60px_rgba(0,82,208,0.08)] transition-all duration-500">
+            <figure class="mb-8 overflow-hidden rounded-lg h-48 bg-surface-container-low relative">
+              <img alt="Resina translúcida sendo esculpida em formato dental com ferramenta cirúrgica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTkzTuk5FNuo98xag_oj6pu3Ujzg0iaVBCYfR4KYhR9_2otUiq2n6pS-isKwzHNRybN_ECyIF2-qgmMbBxvJdjsv6HqEWZva8opF08j5hr3QnyIfgvjljEjl3MBoVDaE7sbJ5yxZ_cRxP0HidTsZYaGeXuQpPjFtFWt4sa2TlzgFi05sXMUHs3xdHiMrZgBfYuGv33JguuGOIsOYkoQYHI37fZaLOaUnidL7F0H8r-XN0c_1-aR2nrgZvMiXp6siQ0K4Eyf4bTy1w" />
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+            </figure>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">brush</span>
+              <h3 class="font-headline text-2xl font-bold tracking-tight">Restauração Estética</h3>
+            </div>
+            <p class="text-on-surface-variant mb-8 leading-relaxed">
+              Resinas esculpidas à mão que imitam a refração natural da luz, corrigindo fraturas e espaços para um acabamento estético impecável.
+            </p>
+            <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+              Explorar Tratamento <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 3B — SERVIÇOS COM PREÇOS (HOME)
+         ════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 px-6 md:px-8 lg:px-24 bg-surface-container-low" aria-labelledby="precos-heading">
+      <div class="max-w-7xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div class="max-w-xl">
+            <h2 id="precos-heading" class="font-headline text-3xl md:text-5xl font-bold mb-6">Serviços Exclusivos</h2>
+            <p class="text-on-surface-variant text-base md:text-lg">Tratamentos sob medida projetados para harmonizar sua estética facial com sua saúde bucal.</p>
+          </div>
+          <a href="#servicos" class="text-primary font-bold border-b-2 border-primary/20 pb-1 hover:border-primary transition-all whitespace-nowrap">Explorar todos os serviços</a>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Facetas Digitais -->
+          <article class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-[0_10px_40px_rgba(0,82,208,0.04)] hover:shadow-xl transition-all duration-500 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">auto_awesome</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-4">Facetas Digitais</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Porcelana ultrafina projetada digitalmente para uma estética natural e radiante.</p>
+            <div class="mt-auto pt-4 border-t border-surface-container">
+              <span class="text-xs font-label text-primary font-bold uppercase tracking-widest block mb-4">A partir de R$ 6.000</span>
+              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20tratamento%20de%20Facetas%20Digitais.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-4 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-md">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Implantes Ethereal -->
+          <article class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-[0_10px_40px_rgba(0,82,208,0.04)] hover:shadow-xl transition-all duration-500 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">view_in_ar</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-4">Implantes Ethereal</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Colocação cirúrgica guiada em 3D para cicatrização ideal e integridade estrutural.</p>
+            <div class="mt-auto pt-4 border-t border-surface-container">
+              <span class="text-xs font-label text-primary font-bold uppercase tracking-widest block mb-4">A partir de R$ 15.000</span>
+              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20tratamento%20de%20Implantes%20Ethereal.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-4 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-md">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Clareamento a Laser -->
+          <article class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-[0_10px_40px_rgba(0,82,208,0.04)] hover:shadow-xl transition-all duration-500 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">bolt</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-4">Clareamento a Laser</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Brilho instantâneo com sensibilidade mínima usando terapia de fótons avançada.</p>
+            <div class="mt-auto pt-4 border-t border-surface-container">
+              <span class="text-xs font-label text-primary font-bold uppercase tracking-widest block mb-4">A partir de R$ 2.500</span>
+              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Clareamento%20a%20Laser.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-4 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-md">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar via WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Alinhadores Invisíveis -->
+          <article class="group bg-surface-container-lowest p-8 rounded-[2rem] shadow-[0_10px_40px_rgba(0,82,208,0.04)] hover:shadow-xl transition-all duration-500 flex flex-col">
+            <div class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">brush</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-4">Alinhadores Invisíveis</h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8">Correção ortodôntica discreta impulsionada por tecnologia de impressão 3D personalizada.</p>
+            <div class="mt-auto pt-4 border-t border-surface-container">
+              <span class="text-xs font-label text-primary font-bold uppercase tracking-widest block mb-4">A partir de R$ 12.000</span>
+              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20tenho%20interesse%20nos%20Alinhadores%20Invis%C3%ADveis.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-4 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-md">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 4 — SOBRE NÓS
+         ════════════════════════════════════════════ -->
+    <section id="sobre" class="relative px-6 md:px-8 py-24 md:py-32 max-w-7xl mx-auto overflow-hidden" aria-labelledby="sobre-heading">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="z-10">
+          <span class="inline-block px-4 py-1.5 bg-primary-container text-on-primary-container rounded-full text-[10px] font-bold tracking-widest uppercase mb-6">
+            O Santuário Digital
+          </span>
+          <h2 id="sobre-heading" class="text-4xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-8">
+            Precisão <br /><span class="text-primary italic">Redefinida.</span>
+          </h2>
+          <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
+            Transformamos a excelência clínica em uma experiência aspiracional. Descubra um santuário odontológico onde a inovação de alta tecnologia encontra o calor humano.
+          </p>
+        </div>
+        <figure class="relative group">
+          <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl" aria-hidden="true"></div>
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl transform md:rotate-3 transition-transform hover:rotate-0 duration-500">
+            <img alt="Consultório odontológico ultra-moderno com equipamentos de alta tecnologia e paleta minimalista branca e azul" class="w-full h-[400px] md:h-[500px] object-cover scale-110 group-hover:scale-100 transition-transform duration-700" loading="lazy"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgOwTYvROHXQthHZ6IDod2NZEWrRFYXp7QRv5r7cA1YwhOaujrtVbzn2ApxUKM_l9MjTKPgjT1Qo5QaLfXp9Jl1_dQHNGy7efMf0R7LHQ9xEXWKm7O9UrZWZMXAjW5E8HQ6ktDl3iJlRBRXDUkzHu-J-RshRHvtMGcC2YI9NTbwKqzLN1G_JnCrddjrdzgtc2__gaH6eqpuaFcBKq7tvQNQxDw3mqug9R6ElspNP02yngGodeiOB6q0ZxrDKx_UwLS8E79T4wEE2o" />
+          </div>
+          <!-- Overlapping stat card -->
+          <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-40 md:w-48 h-40 md:h-48 bg-surface-container-lowest p-6 rounded-3xl shadow-xl flex flex-col justify-center items-center border border-outline-variant/10 backdrop-blur-sm transform -rotate-3">
+            <span class="material-symbols-outlined text-primary text-4xl md:text-5xl mb-4" aria-hidden="true">clinical_notes</span>
+            <p class="text-center">
+              <strong class="font-headline font-bold text-2xl block">99.8%</strong>
+              <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Taxa de Precisão</span>
+            </p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- Our Story -->
+    <section class="bg-surface-container-low py-24 md:py-32 rounded-t-[3rem] md:rounded-t-[4rem]" aria-labelledby="historia-heading">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+          <!-- Image Grid -->
+          <div class="w-full md:w-1/2 order-2 md:order-1">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <figure class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg">
+                  <img alt="Instrumentos odontológicos de aço inoxidável polido organizados em superfície estéril" class="w-full h-full object-cover" loading="lazy"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMj_7VQYDql85H2ntZQbYlqweiEds9WC0GwaxPSanAmSnSUsYZmaSd1prkeOpToceRa08IddCSR_PO4jkrRUg26PqIqVY6eUHzLBcyxzYHtHvXHMgXFTl_j1xpZ93C4kgi85OizxyOYsu4UuFttZ3TqeZwz9mOHE7FyIRjP5yMeFgKPboqnS9bLOCnCHxWv1QHZ2Z7FaKlq6G0TH6EaDkHky6P1cpZSilihEvyGGmdMtSajFqMM6HHBRURVdBWZeiREHMcJLglAQQ" />
+                </figure>
+                <div class="h-36 md:h-48 rounded-2xl bg-primary flex items-center justify-center p-8 text-on-primary" aria-hidden="true">
+                  <span class="material-symbols-outlined text-5xl md:text-6xl">history_edu</span>
+                </div>
+              </div>
+              <div class="pt-8 md:pt-12 space-y-4">
+                <div class="h-36 md:h-48 rounded-2xl bg-white shadow-inner flex items-center justify-center">
+                  <p class="text-center">
+                    <strong class="text-3xl md:text-4xl font-headline font-bold text-primary block">15+</strong>
+                    <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Anos de Legado</span>
+                  </p>
+                </div>
+                <figure class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg">
+                  <img alt="Lobby de clínica odontológica de luxo com paredes curvas brancas e iluminação ambiente suave" class="w-full h-full object-cover" loading="lazy"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl3i679_l72pAyTqb87LO-GlSrVvuW4gzLUbivVfE1NXt_Jd4vlXhDCv4Uw4axTZlph7m50IweNE74gXMfrPkjiRUTTFAYcwL6M2S1ah5zkqtmRgO55wGFy_ZscUyIwg_t_R84eXj4mFwzweYE70lcTxaG86Wvf6Y2fAcjk3CRiXNoq8u1V5U3n5hz1qE5AEGLoeJgki9QGjpiZvEm6BDZPDQaXjwhyxDKJpjxXeJY-be3UtAxJ4Clpil5ZAbCY3wnO7sSIwnB5jQ" />
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="w-full md:w-1/2 order-1 md:order-2">
+            <h2 id="historia-heading" class="text-3xl md:text-4xl font-headline font-bold mb-8 tracking-tight">Nossa História: <br /><span class="text-primary-dim">A Evolução do Cuidado</span></h2>
+            <div class="space-y-6 text-on-surface-variant leading-relaxed text-base md:text-lg">
+              <p>Fundada em 2009, a Clinical Ethereal nasceu de uma visão singular: eliminar a ansiedade clínica frequentemente associada à odontologia e substituí-la por um senso de maravilha arquitetônica e precisão absoluta.</p>
+              <p>Acreditamos que sua saúde bucal é a porta de entrada para seu bem-estar geral. Nossa jornada tem sido definida pela busca do 'Toque Invisível' — procedimentos tão precisos e ambientes tão calmos que a jornada do paciente parece sem esforço.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Tecnologia Pioneira -->
+    <section class="py-24 md:py-32 bg-background" aria-labelledby="tecnologia-heading">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <header class="text-center mb-16 md:mb-20">
+          <h2 id="tecnologia-heading" class="text-3xl md:text-4xl font-headline font-extrabold tracking-tight mb-4">Tecnologia Pioneira</h2>
+          <p class="text-on-surface-variant max-w-2xl mx-auto">Investimos no futuro da odontologia para que você possa vivenciar o presente com total conforto.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <!-- Tech 1: Escaneamento Biológico 3D (large) -->
+          <article class="md:col-span-2 md:row-span-2 bg-surface-container-lowest p-8 md:p-10 rounded-[2rem] shadow-[0_10px_40px_rgba(0,82,208,0.03)] flex flex-col justify-between border border-white">
+            <div>
+              <div class="w-16 h-16 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8">
+                <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">biotech</span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-headline font-bold mb-4">Escaneamento Biológico 3D</h3>
+              <p class="text-on-surface-variant leading-relaxed">Nossos scanners intraorais de ultra-alta resolução criam um gêmeo digital perfeito da sua anatomia, permitindo a modelagem preditiva dos resultados antes mesmo de iniciarmos o tratamento.</p>
+            </div>
+            <figure class="mt-8 rounded-xl overflow-hidden h-48">
+              <img alt="Modelo digital 3D de dentes em monitor médico de alta resolução" class="w-full h-full object-cover" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuACB-ZMlAeAWmHmn23QR3oOqevKM1ZIsXBprzS014aZD8nxfAUOUlTZ2eXjgk28MQw4GqjIRwhRbEcq91nTbv_iRKrIECLfqzjyqUOFtM0Q6Mxa5FCjQpLyNVOQ4UdtBBYNmfrlkBtoVRmoBbRda8UxUQFdAbSDCu2Z1QGlu8xVm0H-wIx17Q_aD1FmwjNJNM5w0vlkUjThV9u0bNTECeiYvVzSKoTeUxGxjBeMF6kbpgkkULVQcJ6eiOCT1HAzE8uh18OAfvUK4hg" />
+            </figure>
+          </article>
+
+          <!-- Tech 2: Cirurgia a Laser Guiada -->
+          <article class="md:col-span-2 bg-primary text-on-primary p-8 md:p-10 rounded-[2rem] shadow-xl relative overflow-hidden group">
+            <div class="relative z-10">
+              <h3 class="text-xl md:text-2xl font-headline font-bold mb-4">Cirurgia a Laser Guiada</h3>
+              <p class="text-on-primary/80 leading-relaxed">Procedimentos minimamente invasivos com tempo de recuperação quase zero, utilizando tecnologia de ondas de luz direcionadas.</p>
+            </div>
+            <span class="material-symbols-outlined absolute -bottom-8 -right-8 text-[12rem] opacity-10 group-hover:scale-110 transition-transform duration-700" aria-hidden="true">flare</span>
+          </article>
+
+          <!-- Tech 3: Planejamento em RA -->
+          <article class="bg-surface-container-low p-8 rounded-[2rem] flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" aria-hidden="true">view_in_ar</span>
+            <h3 class="font-headline font-bold mb-2">Planejamento em RA</h3>
+            <p class="text-sm text-on-surface-variant">Visualize a transformação do seu sorriso em tempo real com Realidade Aumentada.</p>
+          </article>
+
+          <!-- Tech 4: Fresagem 3D -->
+          <article class="bg-surface-container-low p-8 rounded-[2rem] flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" aria-hidden="true">print</span>
+            <h3 class="font-headline font-bold mb-2">Fresagem 3D</h3>
+            <p class="text-sm text-on-surface-variant">Criação no local de coroas de cerâmica de precisão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Team Section -->
+    <section class="py-24 md:py-32 bg-surface-container-low rounded-b-[3rem] md:rounded-b-[4rem]" aria-labelledby="equipe-heading">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
+          <div class="max-w-xl">
+            <h2 id="equipe-heading" class="text-3xl md:text-4xl font-headline font-extrabold tracking-tight mb-4">Arquitetos da Precisão</h2>
+            <p class="text-on-surface-variant text-base md:text-lg">Liderada por pioneiros do setor, nossa equipe combina décadas de experiência cirúrgica com uma paixão pela excelência estética.</p>
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <!-- Doctor 1 -->
+          <article class="group">
+            <figure class="relative rounded-[2rem] overflow-hidden mb-6 aspect-[4/5] shadow-lg">
+              <img alt="Dra. Elena Vance — Cirurgiã-Chefe e Fundadora da Clinical Ethereal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmnGQfWqhAy6twJo8f2Ia7aDhOEwu8BXnvCA_ZmyIH2ZoQLYZzMysbgE8vijMZR16tVVvs4AAynRFucHOk_Lx5XF5QeqdQ173jJRHpqdO6CFJqOmYf41wh8fAwJeJ3t8_GUnONgfdw_ogL9qOEcIeNCPrQ7VX1bjeB80H5eJJRow_Z_SLxH_Ecyzt_CfyEtmU63P_eiJFBgiWPf8LajH3u_GtwmKsrilo_ConGbGvV2ozgn575PUa6CKECCSqt_rvhFZ1xHVnzNGk" />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </figure>
+            <h3 class="text-xl md:text-2xl font-headline font-bold">Dra. Elena Vance</h3>
+            <p class="text-primary font-bold text-sm uppercase tracking-widest mt-1">Cirurgiã-Chefe &amp; Fundadora</p>
+            <p class="text-on-surface-variant mt-4 leading-relaxed">Especializada em estética reconstrutiva e arquitetura oral complexa.</p>
+          </article>
+
+          <!-- Doctor 2 -->
+          <article class="group md:pt-12">
+            <figure class="relative rounded-[2rem] overflow-hidden mb-6 aspect-[4/5] shadow-lg">
+              <img alt="Dr. Julian Thorne — Líder em Odontologia Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHK90G1wVLnIHASaLE_R_l_skLYA9rLzpsidxUNrMAUpMBergJTs246ataib03NOg5_hapo32bDPwKCbCcX0wjo2VY4AgIgIVajztMnYoexmzThSLKUsLBHdGCVRPbKnhZ8EgYFhqZjp64319zOuzV7G-Z9FGTFzq4v5zfsQemvCIusO0z-G75__0JKo3Lj-RbjlZX1UEIbKi5PjyLGdisa0uwWG43kvjH7WTY84aZkWixAA_9l856dB1GnJl4HFDhK3PqXyq2rTE" />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </figure>
+            <h3 class="text-xl md:text-2xl font-headline font-bold">Dr. Julian Thorne</h3>
+            <p class="text-primary font-bold text-sm uppercase tracking-widest mt-1">Líder em Odontologia Digital</p>
+            <p class="text-on-surface-variant mt-4 leading-relaxed">Pioneiro em modelagem 3D e implantodontia guiada por computador.</p>
+          </article>
+
+          <!-- Doctor 3 -->
+          <article class="group">
+            <figure class="relative rounded-[2rem] overflow-hidden mb-6 aspect-[4/5] shadow-lg">
+              <img alt="Dra. Sarah Chen — Especialista em Endodontia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkauWkPOTYonZ16lvnQWBnk_CHjgWSw0cHGf9nkWy1B5UXZHRYnLitV0M_cnbJ-YZEFY2_LW7RXKroWYjsW4QfKZA_iK_CTzMz6Jc72-5dYrM93_zILjl0UTESV_XGbBs79UxQiBBYgjK44L72CXPRClLvaYNWOcMeip2gRFBu0UZWELNA_cZTGjimW0hogH2mw3_7_uHDaly7HsuQ6cOapLRQ7lImzafk1AuDQHpf6LRU1DVm12eL2gHwEVf7lXK0ZGq98zebO-A" />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </figure>
+            <h3 class="text-xl md:text-2xl font-headline font-bold">Dra. Sarah Chen</h3>
+            <p class="text-primary font-bold text-sm uppercase tracking-widest mt-1">Especialista em Endodontia</p>
+            <p class="text-on-surface-variant mt-4 leading-relaxed">Especialista em precisão microscópica e terapia dentária conservadora.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO 5 — DEPOIMENTOS
+         ════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 bg-slate-50 relative overflow-hidden" aria-labelledby="depoimentos-heading">
+      <span class="material-symbols-outlined absolute -top-10 -left-10 text-[20rem] opacity-[0.03] select-none text-primary pointer-events-none" aria-hidden="true">heart_check</span>
+      <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <h2 id="depoimentos-heading" class="font-headline text-3xl md:text-4xl font-bold text-center mb-16 md:mb-24">Reflexões dos Pacientes</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Testimonial 1 -->
+          <blockquote class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm relative">
+            <span class="text-primary text-6xl font-serif absolute -top-8 left-12 opacity-20" aria-hidden="true">"</span>
+            <p class="text-lg md:text-xl italic text-on-surface-variant leading-relaxed mb-8 relative">
+              A tecnologia usada na Clinical Ethereal está além de tudo o que eu já vi. Ver meu novo sorriso em uma simulação 3D antes mesmo de começarmos me deu total confiança. O resultado é melhor do que eu jamais imaginei.
+            </p>
+            <footer class="flex items-center gap-4">
+              <figure class="w-14 h-14 rounded-full bg-surface-container overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Elena Rodriguez" loading="lazy"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOGvXOZ9YJdDj1qX6yML75Zv0iSTNtI8pNPVC_l3coi2-UKpIdKSkjRUlXaZ5bUlTSLV4l18Wak1eEKlJUwBA-51XCufOh-SPlbIOgpqXD5smHZzbqneVgiZJs-qO2DbBF85_DzwIBKTxu4jjt1gNlEWcy3gxTWo6kPDoBYGmt8fDQ1ADwss00VcrTKZt8JEgjuS1X44j0zCTZKlE0xMpBPp0gcsjDmIAUIhHKpKhNyOh9aiszDyUsDBOrZ0AWnCbogQC0xLVbqUU" />
+              </figure>
+              <div>
+                <cite class="not-italic font-bold block">Elena Rodriguez</cite>
+                <span class="text-xs font-label uppercase text-primary tracking-widest">Paciente de Facetas Digitais</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 2 -->
+          <blockquote class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm relative">
+            <span class="text-primary text-6xl font-serif absolute -top-8 left-12 opacity-20" aria-hidden="true">"</span>
+            <p class="text-lg md:text-xl italic text-on-surface-variant leading-relaxed mb-8 relative">
+              Finalmente, um dentista que não parece um dentista. O ambiente é tão calmo e a precisão do procedimento de clareamento a laser foi impressionante. Meus dentes nunca pareceram tão naturais e brilhantes.
+            </p>
+            <footer class="flex items-center gap-4">
+              <figure class="w-14 h-14 rounded-full bg-surface-container overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Marcus Sterling" loading="lazy"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtyTAHZJqlo_F8T6KTd1ebOy86KRzqp4sR1lxo-Ury4l23JKrj67gweva0re3q77P35vwdSbUiEX-ztAsbX3tPl8SwnkrZ_wo5qdNyRr-KOy2Q18Fm5bNHeayn1HV_teMitW6UqNQE1IH6ET3dGJIQ663jUw1lMb2L6ZHn97Bwh7HyDxVKz2L5Qi2xwaVAHJkwstyORnhNZ-ze03PGBgjCqfcJUzJKwOD0PhKlGmH7TidUzZwUNIEPnbmHIAZkgxl3Tr1zI7KNHeo" />
+              </figure>
+              <div>
+                <cite class="not-italic font-bold block">Marcus Sterling</cite>
+                <span class="text-xs font-label uppercase text-primary tracking-widest">Paciente de Terapia a Laser</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- ════════════════════════════════════════════
+         CTA FINAL
+         ════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 px-6 md:px-8" aria-labelledby="cta-heading">
+      <div class="max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] bg-gradient-to-br from-primary to-primary-dim p-10 md:p-16 text-center text-on-primary shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
+          <span class="material-symbols-outlined text-[20rem] md:text-[30rem] absolute -bottom-20 -right-20">medical_services</span>
+        </div>
+        <h2 id="cta-heading" class="font-headline text-3xl md:text-5xl font-bold mb-8 relative z-10">Transforme seu Eu do Futuro Hoje</h2>
+        <p class="text-on-primary/80 text-base md:text-lg mb-12 max-w-2xl mx-auto relative z-10">Entre no santuário da odontologia moderna. Agende sua consulta privada e experimente a precisão clínica.</p>
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-all relative z-10 shadow-lg">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar via WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════ -->
+  <footer class="bg-slate-50 w-full rounded-t-[2rem]" role="contentinfo">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 px-6 md:px-12 py-16 md:py-20 max-w-7xl mx-auto">
+      <div class="sm:col-span-2 md:col-span-1">
+        <p class="text-xl font-bold text-blue-700 font-headline mb-6">Clinical Ethereal</p>
+        <p class="text-sm leading-relaxed text-slate-600 mb-6">Redefinindo a experiência odontológica por meio de design arquitetônico e inovação médica. Um santuário digital para o seu sorriso.</p>
+        <div class="flex gap-4">
+          <a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" aria-label="Compartilhar">
+            <span class="material-symbols-outlined text-xl" aria-hidden="true">share</span>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" aria-label="Email">
+            <span class="material-symbols-outlined text-xl" aria-hidden="true">alternate_email</span>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Links da clínica">
+        <h4 class="font-headline font-bold text-on-surface mb-6 uppercase text-xs tracking-widest">A Clínica</h4>
+        <ul class="space-y-4 text-sm list-none">
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#inicio">Início</a></li>
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#servicos">Serviços</a></li>
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#sobre">Sobre Nós</a></li>
+          <li><a class="text-slate-500 hover:text-[#25D366] hover:underline decoration-[#25D366]/30 transition-all" href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Redes sociais">
+        <h4 class="font-headline font-bold text-on-surface mb-6 uppercase text-xs tracking-widest">Redes</h4>
+        <ul class="space-y-4 text-sm list-none">
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#">Instagram</a></li>
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#">LinkedIn</a></li>
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#">Fale Conosco</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Políticas e termos">
+        <h4 class="font-headline font-bold text-on-surface mb-6 uppercase text-xs tracking-widest">Políticas</h4>
+        <ul class="space-y-4 text-sm list-none">
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#">Política de Privacidade</a></li>
+          <li><a class="text-slate-500 hover:text-blue-500 hover:underline decoration-blue-500/30 transition-all" href="#">Termos de Serviço</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-8 border-t border-surface-container">
+      <p class="text-xs text-center text-slate-400">&copy; 2024 The Clinical Ethereal. Cuidado Dental de Precisão.</p>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+       ════════════════════════════════════════════ -->
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Clinical%20Ethereal." target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Agendar consulta via WhatsApp">
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════ -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'close' : 'menu';
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -70% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
