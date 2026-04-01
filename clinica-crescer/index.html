@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Crescer — Saúde Infantil Multidisciplinar</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#3a86ff;--blue-lt:#dbeaff;
+  --purple:#8b5cf6;--purple-lt:#ede9fe;
+  --pink:#f472b6;--pink-lt:#fce7f3;
+  --orange:#fb923c;--orange-lt:#ffedd5;
+  --green:#22c55e;--green-lt:#dcfce7;
+  --yellow:#fbbf24;--yellow-lt:#fef3c7;
+  --teal:#14b8a6;--teal-lt:#ccfbf1;
+  --bg:#f8f7ff;--text:#1e1b4b;--muted:#64748b;--white:#fff;
+  --r:20px;--r-lg:32px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(248,247,255,.94);backdrop-filter:blur(18px);padding:0 5vw;height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid rgba(58,134,255,.1);transition:box-shadow .3s}
+.logo{font-family:'Baloo 2',cursive;font-size:1.65rem;font-weight:800;color:var(--blue);display:flex;align-items:center;gap:6px;text-decoration:none}
+.logo-heart{color:var(--pink);animation:hbeat 1.4s ease-in-out infinite;display:inline-block}
+@keyframes hbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.9rem;font-weight:700;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{background:var(--blue);color:#fff;padding:.55rem 1.5rem;border-radius:50px;font-size:.9rem;font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(58,134,255,.35);transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(58,134,255,.45)}
+
+/* HERO */
+#hero{min-height:100vh;background:linear-gradient(145deg,#dff0ff 0%,#ede8ff 45%,#ffdff5 100%);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:100px 5vw 120px;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none}
+.bl1{width:400px;height:400px;background:rgba(58,134,255,.18);top:-100px;right:0}
+.bl2{width:280px;height:280px;background:rgba(244,114,182,.18);bottom:60px;left:-60px}
+.bl3{width:160px;height:160px;background:rgba(251,191,36,.22);top:30%;left:15%}
+.deco{position:absolute;pointer-events:none;animation:deco-float 6s ease-in-out infinite}
+@keyframes deco-float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(8deg)}}
+
+.hero-text{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:2px solid var(--blue-lt);border-radius:50px;padding:.42rem 1.1rem;font-size:.78rem;font-weight:800;color:var(--blue);margin-bottom:1.5rem;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 4px 12px rgba(58,134,255,.12)}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:hbeat 1.6s ease-in-out infinite}
+h1{font-family:'Baloo 2',cursive;font-size:clamp(2.2rem,4.5vw,3.9rem);font-weight:800;line-height:1.1;color:var(--text);margin-bottom:1.2rem}
+h1 .hl-blue{color:var(--blue)}
+h1 .hl-pink{color:var(--pink)}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.85;font-weight:600;max-width:460px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.btn-main{background:var(--blue);color:#fff;padding:.85rem 2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(58,134,255,.4);transition:transform .2s,box-shadow .2s}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(58,134,255,.5)}
+.btn-sec{background:var(--white);color:var(--blue);border:2.5px solid var(--blue);padding:.85rem 2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;transition:background .2s}
+.btn-sec:hover{background:var(--blue-lt)}
+.hero-quick-stats{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.qstat{display:flex;align-items:center;gap:.5rem}
+.qstat-n{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:var(--blue);line-height:1}
+.qstat-l{font-size:.75rem;font-weight:700;color:var(--muted);max-width:64px;line-height:1.3}
+.qstat-sep{width:1px;height:36px;background:rgba(0,0,0,.1)}
+
+/* HERO PHOTO SCENE */
+.hero-photos{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;height:520px}
+.photo-scene{position:relative;width:100%;max-width:480px;height:520px;margin:0 auto}
+
+.frame-girl{
+  position:absolute;left:0;bottom:0;
+  width:255px;height:330px;
+  border-radius:55% 55% 48% 48% / 58% 58% 42% 42%;
+  overflow:hidden;border:5px solid var(--pink);
+  box-shadow:0 16px 48px rgba(244,114,182,.3);
+  animation:bob-a 3.2s ease-in-out infinite;
+  background:var(--pink-lt);
+}
+.frame-boy{
+  position:absolute;right:0;bottom:0;
+  width:245px;height:315px;
+  border-radius:55% 55% 46% 46% / 58% 58% 42% 42%;
+  overflow:hidden;border:5px solid var(--blue);
+  box-shadow:0 16px 48px rgba(58,134,255,.28);
+  animation:bob-b 2.8s ease-in-out infinite;
+  animation-delay:.5s;
+  background:var(--blue-lt);
+}
+.frame-girl img,.frame-boy img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+@keyframes bob-a{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes bob-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+
+/* emoji bubbles */
+.pb{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+.pb1{width:68px;height:68px;background:var(--yellow);top:28px;left:50%;transform:translateX(-50%);animation:bubble-pop 2.5s ease-in-out infinite}
+.pb2{width:54px;height:54px;background:var(--green-lt);border:3px solid var(--green);bottom:110px;right:10px;animation:bubble-pop 3s ease-in-out infinite;animation-delay:-.8s;font-size:1.1rem}
+.pb3{width:48px;height:48px;background:var(--purple-lt);border:3px solid var(--purple);top:115px;left:-8px;animation:bubble-pop 2.2s ease-in-out infinite;animation-delay:-1.4s;font-size:1rem}
+.pb4{width:42px;height:42px;background:var(--orange-lt);border:3px solid var(--orange);top:58px;right:42px;animation:bubble-pop 3.5s ease-in-out infinite;animation-delay:-.4s;font-size:.9rem}
+@keyframes bubble-pop{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.12) translateY(-8px)}}
+
+.photo-badge{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);background:var(--white);border-radius:50px;padding:.6rem 1.4rem;font-size:.82rem;font-weight:800;color:var(--text);box-shadow:0 8px 28px rgba(0,0,0,.14);white-space:nowrap;display:flex;align-items:center;gap:.5rem;z-index:5}
+.photo-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:hbeat 1.5s ease-in-out infinite}
+
+.fstar{position:absolute;pointer-events:none}
+.fstar svg{animation:spin-star 4s linear infinite}
+@keyframes spin-star{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/* SHARED SECTION */
+section{padding:90px 5vw}
+.sec-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.35rem 1rem;border-radius:50px;margin-bottom:1rem}
+.sec-tag.blue{background:var(--blue-lt);color:var(--blue)}
+.sec-tag.purple{background:var(--purple-lt);color:var(--purple)}
+.sec-tag.orange{background:var(--orange-lt);color:var(--orange)}
+.sec-tag.pink{background:var(--pink-lt);color:var(--pink)}
+.sec-tag.teal{background:var(--teal-lt);color:var(--teal)}
+h2{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:.8rem}
+.sec-body{font-size:1rem;color:var(--muted);line-height:1.85;font-weight:600;max-width:540px}
+
+/* HISTÓRIA */
+#historia{background:var(--white)}
+.hist-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.hist-visual{border-radius:var(--r-lg);overflow:hidden;position:relative;min-height:400px}
+.hist-photo-main{width:100%;height:100%;min-height:400px;object-fit:cover;border-radius:var(--r-lg);display:block}
+.hist-badge{position:absolute;bottom:24px;right:-16px;background:var(--yellow);border-radius:20px;padding:1rem 1.4rem;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.3rem;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.hist-badge small{display:block;font-family:'Nunito',sans-serif;font-size:.72rem;font-weight:700;color:var(--muted)}
+.hist-text{display:flex;flex-direction:column;gap:1.2rem}
+.hist-text p{color:var(--muted);line-height:1.9;font-weight:600}
+.read-link{color:var(--blue);font-weight:800;font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;margin-top:.4rem}
+
+/* PROFISSIONAIS */
+#profissionais{background:linear-gradient(180deg,var(--bg) 0%,#fff 100%)}
+.prof-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.prof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px}
+.prof-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:2.5px solid transparent;transition:transform .25s,border-color .25s,box-shadow .25s}
+.prof-card:nth-child(1){--ac:var(--blue);--ac-lt:var(--blue-lt)}
+.prof-card:nth-child(2){--ac:var(--teal);--ac-lt:var(--teal-lt)}
+.prof-card:nth-child(3){--ac:var(--purple);--ac-lt:var(--purple-lt)}
+.prof-card:nth-child(4){--ac:var(--orange);--ac-lt:var(--orange-lt)}
+.prof-card:nth-child(5){--ac:var(--pink);--ac-lt:var(--pink-lt)}
+.prof-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,.09);border-color:var(--ac)}
+.prof-photo{aspect-ratio:3/4;background:var(--ac-lt);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.prof-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.prof-spec{position:absolute;bottom:10px;left:10px;background:var(--ac);color:#fff;border-radius:50px;padding:.3rem .9rem;font-size:.7rem;font-weight:800;letter-spacing:.05em}
+.prof-body{padding:1.2rem 1.3rem 1.5rem}
+.prof-name{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;color:var(--text)}
+.prof-role{font-size:.78rem;font-weight:800;color:var(--ac);margin-top:2px;margin-bottom:.6rem}
+.prof-desc{font-size:.82rem;color:var(--muted);line-height:1.7;font-weight:600}
+.prof-reg{font-size:.7rem;color:#bbb;margin-top:.5rem;font-weight:600}
+.prof-avatar{width:90px;height:90px;border-radius:50%;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800}
+
+/* SERVIÇOS */
+#servicos{background:var(--white)}
+.serv-intro{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:center;margin-bottom:3.5rem}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.serv-card{border-radius:var(--r);padding:1.8rem;border:2px solid transparent;transition:transform .2s,border-color .2s}
+.serv-card:nth-child(1){background:var(--blue-lt);--ac:var(--blue)}
+.serv-card:nth-child(2){background:var(--purple-lt);--ac:var(--purple)}
+.serv-card:nth-child(3){background:var(--green-lt);--ac:var(--green)}
+.serv-card:nth-child(4){background:var(--orange-lt);--ac:var(--orange)}
+.serv-card:nth-child(5){background:var(--pink-lt);--ac:var(--pink)}
+.serv-card:nth-child(6){background:var(--teal-lt);--ac:var(--teal)}
+.serv-card:hover{transform:translateY(-5px);border-color:var(--ac)}
+.serv-emoji{font-size:2rem;margin-bottom:.8rem;display:block}
+.serv-name{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
+.serv-desc{font-size:.83rem;color:var(--muted);line-height:1.7;font-weight:600}
+
+/* CONVÊNIOS */
+#convenios{background:linear-gradient(135deg,#e8f4ff 0%,#f0e8ff 100%)}
+.conv-center{text-align:center;margin-bottom:2.5rem}
+.conv-center .sec-body{margin:0 auto;text-align:center}
+.conv-pills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.conv-pill{background:var(--white);border-radius:50px;padding:.65rem 1.6rem;font-size:.9rem;font-weight:800;color:var(--text);border:2px solid rgba(58,134,255,.15);transition:border-color .2s,color .2s,background .2s;cursor:default;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.conv-pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-lt)}
+.conv-note{text-align:center;margin-top:1.5rem;font-size:.82rem;color:var(--muted);font-weight:600;font-style:italic}
+
+/* INFO */
+#info{background:linear-gradient(145deg,#1e1b4b 0%,#312e81 60%,#4c1d95 100%);display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:90px 5vw}
+.info-block .sec-tag{background:rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
+.info-block h2{color:#fff;font-size:clamp(1.6rem,2.5vw,2.2rem)}
+.sch-rows{margin-top:1.5rem;display:flex;flex-direction:column;gap:12px}
+.sch-row{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.2rem;border-radius:16px;background:rgba(255,255,255,.08)}
+.sch-day{font-size:.9rem;font-weight:700;color:rgba(255,255,255,.7)}
+.sch-time{font-size:.9rem;font-weight:800;color:#fff}
+.sch-closed{color:rgba(255,255,255,.3)!important;font-style:italic}
+.wa-card{margin-top:1.8rem;padding:1.2rem 1.4rem;border-radius:16px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3)}
+.wa-card p{font-size:.87rem;color:rgba(255,255,255,.8);font-weight:700;line-height:1.7}
+.addr-rows{margin-top:1.5rem;display:flex;flex-direction:column;gap:1.1rem}
+.addr-row{display:flex;gap:1rem;align-items:flex-start}
+.addr-icon{width:40px;height:40px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center}
+.addr-icon svg{width:18px;height:18px;fill:none;stroke:rgba(255,255,255,.9);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.addr-label{font-size:.7rem;font-weight:800;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em}
+.addr-val{font-size:.92rem;font-weight:700;color:rgba(255,255,255,.9);margin-top:2px}
+.map-box{margin-top:1.5rem;border-radius:16px;height:150px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.85rem;font-weight:700;gap:.5rem;cursor:pointer;transition:background .2s}
+.map-box:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
+.map-box svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+
+/* FOOTER */
+footer{background:#150f3a;padding:60px 5vw 32px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px}
+.ft-logo{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:#fff}
+.ft-tagline{font-size:.83rem;color:rgba(255,255,255,.35);line-height:1.8;margin-top:.8rem;font-weight:600;max-width:240px}
+.ft-col h4{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.ft-col a{display:block;font-size:.88rem;font-weight:700;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:.6rem;transition:color .2s}
+.ft-col a:hover{color:#fff}
+.ft-bottom{background:#0c0820;padding:18px 5vw;display:flex;justify-content:space-between;align-items:center}
+.ft-bottom p{font-size:.78rem;color:rgba(255,255,255,.2);font-weight:600}
+
+/* WA INLINE BUTTON */
+.wa-btn-inline{display:inline-flex;align-items:center;gap:.75rem;margin-top:1.5rem;background:#25D366;color:#fff;padding:.85rem 1.8rem;border-radius:50px;font-size:.95rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s}
+.wa-btn-inline:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(37,211,102,.55)}
+.wa-btn-inline svg{width:24px;height:24px;fill:#fff;flex-shrink:0}
+
+/* WA FAB */
+.wa-fab{position:fixed;bottom:32px;right:32px;z-index:300;width:64px;height:64px;border-radius:50%;background:#25D366;box-shadow:0 8px 28px rgba(37,211,102,.5);display:flex;align-items:center;justify-content:center;text-decoration:none;animation:wa-pulse 3s ease-in-out infinite;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.12);animation:none}
+@keyframes wa-pulse{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.5)}50%{box-shadow:0 8px 28px rgba(37,211,102,.5),0 0 0 14px rgba(37,211,102,.1)}}
+.wa-fab svg{width:34px;height:34px;fill:#fff}
+.wa-tip{position:absolute;right:74px;top:50%;transform:translateY(-50%);background:#1e1b4b;color:#fff;border-radius:10px;padding:.4rem 1rem;font-size:.8rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.wa-fab:hover .wa-tip{opacity:1}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.revealed{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr}
+  .hero-photos{height:360px}
+  .frame-girl{width:185px;height:240px}
+  .frame-boy{width:175px;height:228px}
+  .hist-wrap{grid-template-columns:1fr}
+  .serv-intro{grid-template-columns:1fr}
+  .serv-grid{grid-template-columns:1fr 1fr}
+  #info{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;gap:32px}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .serv-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="logo">Clínica Crescer <span class="logo-heart">♥</span></a>
+  <ul class="nav-links">
+    <li><a href="#historia">Nossa História</a></li>
+    <li><a href="#profissionais">Equipe</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#convenios">Convênios</a></li>
+    <li><a href="#info">Localização</a></li>
+  </ul>
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="nav-cta">Agendar Consulta</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob bl1"></div><div class="blob bl2"></div><div class="blob bl3"></div>
+  <span class="deco" style="top:25%;left:48%;font-size:1.6rem">⭐</span>
+  <span class="deco" style="top:68%;left:52%;font-size:1rem;animation-delay:-2s">✨</span>
+  <span class="deco" style="top:22%;right:3%;font-size:1.2rem;animation-delay:-1s">🌟</span>
+
+  <div class="hero-text">
+    <div class="hero-badge"><span class="badge-dot"></span>Clínica Infantil Multidisciplinar</div>
+    <h1>Cuidado com <span class="hl-blue">amor</span><br>e <span class="hl-pink">alegria</span> para<br>cada criança</h1>
+    <p class="hero-sub">Nutrição, Psicologia, Fisioterapia, Terapia Ocupacional e Fonoaudiologia num único lugar seguro, colorido e acolhedor.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-main">Agendar pelo WhatsApp</a>
+      <a href="#profissionais" class="btn-sec">Conheça a equipe</a>
+    </div>
+    <div class="hero-quick-stats">
+      <div class="qstat"><div class="qstat-n">5</div><div class="qstat-l">especialidades</div></div>
+      <div class="qstat-sep"></div>
+      <div class="qstat"><div class="qstat-n">10+</div><div class="qstat-l">anos cuidando</div></div>
+      <div class="qstat-sep"></div>
+      <div class="qstat"><div class="qstat-n">12</div><div class="qstat-l">convênios</div></div>
+      <div class="qstat-sep"></div>
+      <div class="qstat"><div class="qstat-n">3mil+</div><div class="qstat-l">crianças atendidas</div></div>
+    </div>
+  </div>
+
+  <!-- PHOTO SCENE -->
+  <div class="hero-photos">
+    <div class="photo-scene">
+      <div class="pb pb1">🎈</div>
+      <div class="pb pb2">😄</div>
+      <div class="pb pb3">💙</div>
+      <div class="pb pb4">⭐</div>
+
+      <!-- GIRL -->
+      <div class="frame-girl">
+        <img
+          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=420&q=80&fit=crop&crop=top"
+          alt="Menina feliz"
+          onerror="this.outerHTML='<div style=\'font-size:5rem;display:flex;align-items:center;justify-content:center;height:100%\'>👧</div>'"
+        />
+      </div>
+
+      <!-- BOY -->
+      <div class="frame-boy">
+        <img
+          src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=420&q=80&fit=crop&crop=top"
+          alt="Menino feliz"
+          onerror="this.outerHTML='<div style=\'font-size:5rem;display:flex;align-items:center;justify-content:center;height:100%\'>👦</div>'"
+        />
+      </div>
+
+      <div class="fstar" style="top:55px;left:105px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fbbf24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      </div>
+      <div class="fstar" style="top:185px;right:2px;animation-delay:-1s">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#f472b6"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      </div>
+      <div class="fstar" style="bottom:165px;left:18px;animation-delay:-.5s">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#3a86ff"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      </div>
+
+      <div class="photo-badge">Atendimento humanizado e acolhedor</div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA -->
+<section id="historia" class="reveal">
+  <div class="hist-wrap">
+    <div class="hist-visual">
+      <img class="hist-photo-main"
+        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80&fit=crop"
+        alt="Atendimento na clínica"
+        onerror="this.style.cssText='background:linear-gradient(145deg,#dbeaff,#ede9fe);min-height:400px;display:block'"
+      />
+      <div class="hist-badge">Desde 2014 <small>cuidando de crianças</small></div>
+    </div>
+    <div class="hist-text">
+      <div>
+        <span class="sec-tag blue">Nossa História</span>
+        <h2>Nascemos para cuidar com alegria e dedicação</h2>
+      </div>
+      <p>A Clínica Crescer nasceu em 2014 do sonho de profissionais apaixonados pelo desenvolvimento infantil. Sabíamos que cada criança tem seu tempo, seu jeito e seu potencial único — e que o cuidado mais eficaz acontece quando diferentes especialidades trabalham juntas.</p>
+      <p>Construímos um espaço colorido, acolhedor e seguro onde as crianças se sentem à vontade para crescer, aprender e superar desafios. Nossa missão é transformar cada consulta em uma experiência positiva para a criança e para toda a família.</p>
+      <p>Ao longo de uma década, tornamo-nos referência regional em saúde infantil multidisciplinar, celebrando cada pequena conquista como uma grande vitória.</p>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="read-link">Agendar uma consulta →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROFISSIONAIS -->
+<section id="profissionais" class="reveal">
+  <div class="prof-header">
+    <div>
+      <span class="sec-tag purple">Equipe</span>
+      <h2>Profissionais apaixonados<br>pelo desenvolvimento infantil</h2>
+    </div>
+    <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-main">Agendar consulta</a>
+  </div>
+  <div class="prof-grid">
+
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80&fit=crop&crop=top" alt="Nutricionista"
+          onerror="this.outerHTML='<div class=\'prof-avatar\'>AN</div>'"/>
+        <div class="prof-spec">Nutrição</div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-name">Dra. Ana Oliveira</div>
+        <div class="prof-role">Nutricionista · CRN 12345</div>
+        <div class="prof-desc">Especialista em nutrição infantil, seletividade alimentar e crianças com necessidades especiais.</div>
+        <div class="prof-reg">Pós-grad. em Nutrição Pediátrica — USP</div>
+      </div>
+    </div>
+
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80&fit=crop&crop=top" alt="Terapeuta Ocupacional"
+          onerror="this.outerHTML='<div class=\'prof-avatar\' style=\'background:var(--teal)\'>CM</div>'"/>
+        <div class="prof-spec" style="background:var(--teal)">Ter. Ocupacional</div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-name">Dra. Carla Mendes</div>
+        <div class="prof-role" style="color:var(--teal)">Terapeuta Ocupacional · CREFITO 6789</div>
+        <div class="prof-desc">Integração sensorial, desenvolvimento motor fino e atividades de vida diária. Especialista em autismo e TDAH.</div>
+        <div class="prof-reg">Especialização em Saúde da Criança — UFRGS</div>
+      </div>
+    </div>
+
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80&fit=crop&crop=top" alt="Psicóloga"
+          onerror="this.outerHTML='<div class=\'prof-avatar\' style=\'background:var(--purple)\'>FS</div>'"/>
+        <div class="prof-spec" style="background:var(--purple)">Psicologia</div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-name">Dr. Fernando Souza</div>
+        <div class="prof-role" style="color:var(--purple)">Psicóloga · CRP 07/54321</div>
+        <div class="prof-desc">Psicoterapia infantil, orientação de pais e avaliação neuropsicológica com abordagem lúdica.</div>
+        <div class="prof-reg">Mestrado em Psicologia Infantil — PUC</div>
+      </div>
+    </div>
+
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80&fit=crop&crop=top" alt="Fisioterapeuta"
+          onerror="this.outerHTML='<div class=\'prof-avatar\' style=\'background:var(--orange)\'>RL</div>'"/>
+        <div class="prof-spec" style="background:var(--orange)">Fisioterapia</div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-name">Dr. Rafael Lima</div>
+        <div class="prof-role" style="color:var(--orange)">Fisioterapeuta · CREFITO 11234</div>
+        <div class="prof-desc">Fisioterapia neurológica e ortopédica pediátrica. Acompanha atrasos motores e reabilitação infantil.</div>
+        <div class="prof-reg">Especialização em Fisioterapia Pediátrica — FURG</div>
+      </div>
+    </div>
+
+    <div class="prof-card">
+      <div class="prof-photo">
+        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80&fit=crop&crop=top" alt="Fonoaudióloga"
+          onerror="this.outerHTML='<div class=\'prof-avatar\' style=\'background:var(--pink)\'>JC</div>'"/>
+        <div class="prof-spec" style="background:var(--pink)">Fonoaudiologia</div>
+      </div>
+      <div class="prof-body">
+        <div class="prof-name">Dr. Julio Costa</div>
+        <div class="prof-role" style="color:var(--pink)">Fonoaudióloga · CRFa 9876</div>
+        <div class="prof-desc">Terapia da fala para atraso, gagueira, dislexia e distúrbios de deglutição. Estimulação precoce.</div>
+        <div class="prof-reg">Pós-grad. em Linguagem Infantil — UNISINOS</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="reveal">
+  <div class="serv-intro">
+    <div>
+      <span class="sec-tag orange">O que oferecemos</span>
+      <h2>Serviços pensados para cada fase do desenvolvimento</h2>
+      <p class="sec-body">Cada atendimento é planejado individualmente com suporte ativo para toda a família.</p>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-main" style="display:inline-block;margin-top:1.5rem">Fale com a gente</a>
+    </div>
+    <div></div>
+  </div>
+  <div class="serv-grid">
+    <div class="serv-card"><span class="serv-emoji">🩺</span><div class="serv-name">Consultas individuais</div><div class="serv-desc">Avaliação completa com anamnese detalhada e plano terapêutico personalizado para cada criança.</div></div>
+    <div class="serv-card"><span class="serv-emoji">🧩</span><div class="serv-name">Avaliação multidisciplinar</div><div class="serv-desc">Diagnóstico integrado para TEA, TDAH e atrasos do desenvolvimento com comunicação entre profissionais.</div></div>
+    <div class="serv-card"><span class="serv-emoji">📋</span><div class="serv-name">Laudos e relatórios</div><div class="serv-desc">Relatórios para escolas, planos de saúde e avaliações neuropsicológicas com validade clínica.</div></div>
+    <div class="serv-card"><span class="serv-emoji">💻</span><div class="serv-name">Teleconsulta</div><div class="serv-desc">Atendimento online seguro para orientações, acompanhamentos e continuidade terapêutica.</div></div>
+    <div class="serv-card"><span class="serv-emoji">👨‍👩‍👧</span><div class="serv-name">Orientação a pais</div><div class="serv-desc">Suporte e psicoeducação para famílias de crianças em diagnóstico ou tratamento contínuo.</div></div>
+    <div class="serv-card"><span class="serv-emoji">🌟</span><div class="serv-name">Estimulação precoce</div><div class="serv-desc">Programa de estimulação para bebês e crianças nos primeiros anos do desenvolvimento.</div></div>
+  </div>
+</section>
+
+<!-- CONVÊNIOS -->
+<section id="convenios" class="reveal">
+  <div class="conv-center">
+    <span class="sec-tag teal">Convênios</span>
+    <h2>Planos de saúde aceitos</h2>
+    <p class="sec-body">Trabalhamos com os principais convênios para facilitar o acesso ao cuidado que sua família merece.</p>
+  </div>
+  <div class="conv-pills">
+    <div class="conv-pill">Unimed</div><div class="conv-pill">IPASRS</div>
+    <div class="conv-pill">Bradesco Saúde</div><div class="conv-pill">SulAmérica</div>
+    <div class="conv-pill">Amil</div><div class="conv-pill">Porto Seguro Saúde</div>
+    <div class="conv-pill">Cassi</div><div class="conv-pill">Geap</div>
+    <div class="conv-pill">Fusex</div><div class="conv-pill">Cabergs</div>
+    <div class="conv-pill">Rede Bem Estar</div><div class="conv-pill">Particular</div>
+  </div>
+  <p class="conv-note">* Verifique cobertura por especialidade antes do agendamento.</p>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="info-block">
+    <span class="sec-tag">Horários</span>
+    <h2>Quando atendemos</h2>
+    <div class="sch-rows">
+      <div class="sch-row"><span class="sch-day">Segunda — Sexta</span><span class="sch-time">07h00 às 19h00</span></div>
+      <div class="sch-row"><span class="sch-day">Sábado</span><span class="sch-time">08h00 às 13h00</span></div>
+      <div class="sch-row"><span class="sch-day">Domingo</span><span class="sch-time sch-closed">Fechado</span></div>
+    </div>
+    <div class="wa-card"><p>⚡ Agendamento rápido pelo WhatsApp — respondemos em até 2 horas!</p></div>
+    <div style="display:flex;justify-content:center;margin-top:1.5rem">
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Gostaria%20de%20verificar%20disponibilidade%20de%20hor%C3%A1rio." class="wa-btn-inline" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.861L0 24l6.306-1.508A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 0 1-5.003-1.371l-.36-.214-3.722.976.993-3.624-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="info-block">
+    <span class="sec-tag">Localização</span>
+    <h2>Onde estamos</h2>
+    <div class="addr-rows">
+      <div class="addr-row">
+        <div class="addr-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="addr-label">Endereço</div><div class="addr-val">Rua das Flores, 452 — Sala 301<br>Centro, Rio Grande — RS</div></div>
+      </div>
+      <div class="addr-row">
+        <div class="addr-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="addr-label">Telefone</div><div class="addr-val">(53) 3000-0000</div></div>
+      </div>
+      <div class="addr-row">
+        <div class="addr-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="addr-label">E-mail</div><div class="addr-val"><a href="mailto:contato@clinicacrescer.com.br" style="color:inherit;text-decoration:none">contato@clinicacrescer.com.br</a></div></div>
+      </div>
+    </div>
+    <div class="map-box">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Abrir no Google Maps
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="ft-logo">Clínica Crescer ♥</div>
+    <p class="ft-tagline">Cuidado integral, multidisciplinar e amoroso para o desenvolvimento de cada criança.</p>
+  </div>
+  <div class="ft-col">
+    <h4>Links</h4>
+    <a href="#historia">Nossa história</a>
+    <a href="#profissionais">Equipe</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#convenios">Convênios</a>
+    <a href="#info">Localização</a>
+  </div>
+  <div class="ft-col">
+    <h4>Especialidades</h4>
+    <a href="#">Nutrição Infantil</a>
+    <a href="#">Terapia Ocupacional</a>
+    <a href="#">Psicologia</a>
+    <a href="#">Fisioterapia</a>
+    <a href="#">Fonoaudiologia</a>
+  </div>
+</footer>
+<div class="ft-bottom">
+  <p>© 2025 Clínica Crescer. Todos os direitos reservados.</p>
+  <p>Rio Grande — RS</p>
+</div>
+
+<!-- WA FAB -->
+<a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="wa-fab" target="_blank" aria-label="WhatsApp">
+  <div class="wa-tip">Agendar agora</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.861L0 24l6.306-1.508A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 0 1-5.003-1.371l-.36-.214-3.722.976.993-3.624-.234-.373A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }});
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const cards = document.querySelectorAll('.prof-card');
+  cards.forEach((c,i) => {
+    c.style.opacity='0';
+    c.style.transform='translateY(28px)';
+    c.style.transition=`opacity .6s ease ${i*100}ms,transform .6s ease ${i*100}ms,border-color .25s,box-shadow .25s`;
+  });
+  const profIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        cards.forEach(c => { c.style.opacity='1'; c.style.transform=''; });
+        profIO.disconnect();
+      }
+    });
+  }, {threshold:.1});
+  const pg = document.querySelector('#profissionais');
+  if(pg) profIO.observe(pg);
+</script>
+</body>
+</html>
